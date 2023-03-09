@@ -25688,6 +25688,10 @@ MonoBehaviour:
   movementForceInAir: 10
   airDragMuliplier: 0.95
   variableJumpHeightMultiplier: 0.5
+  wallHopForce: 10
+  wallJumpForce: 20
+  wallHopDirection: {x: 1, y: 0.5}
+  wallJumpDirection: {x: 1, y: 2}
   groundCheck: {fileID: 1700850016}
   wallCheck: {fileID: 1677961972}
   whatIsGroud:
