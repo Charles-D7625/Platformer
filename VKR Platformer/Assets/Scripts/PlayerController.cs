@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
             canWallJump = true;
         }
 
-        if (isGrounded && rb.velocity.y <= 0.05)
+        if (isGrounded && rb.velocity.y <= 0.02)
         {
             canNormalJump = true;
         }
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    
     private void CheckJump()
     {
         if(jumpTimer > 0.1)
@@ -281,6 +281,16 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
             }
         }
+    }
+
+    private void DisableFlip()
+    {
+        canFlip = false;
+    }
+
+    private void EnableFlip()
+    {
+        canFlip = true;
     }
 
     private void FlipCharacter()
