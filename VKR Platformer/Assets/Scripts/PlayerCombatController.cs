@@ -61,7 +61,7 @@ public class PlayerCombatController : MonoBehaviour
                 if (!isFirstAttack && !isSecondAttack && !isThirdAttack)
                 {
                     isFirstAttack = !isFirstAttack;
-                    anim.SetBool("Attack1", true);
+                    anim.SetBool("Attack1", true); 
                     anim.SetBool("FirstAttack", isFirstAttack);
                     anim.SetBool("IsAttacking", isAttacking);
                 }
@@ -82,17 +82,18 @@ public class PlayerCombatController : MonoBehaviour
             }
         }
         
-        if(Time.time >= lastInputTime + inputTimer + 0.3f)
+        if(Time.time >= lastInputTime + inputTimer)
         {
             //Wait for new input
             gotInput = false;
             isAttacking = false;
-            anim.SetBool("FirstAttack", false);
-            anim.SetBool("SecondAttack", isSecondAttack);
-            anim.SetBool("ThirdAttack", isThirdAttack);
             isFirstAttack = false;
             isSecondAttack = false;
             isThirdAttack = false;
+            anim.SetBool("FirstAttack", isFirstAttack);
+            anim.SetBool("SecondAttack", isSecondAttack);
+            anim.SetBool("ThirdAttack", isThirdAttack);
+            
         }
     }
 
@@ -125,6 +126,12 @@ public class PlayerCombatController : MonoBehaviour
     {
         isAttacking = false;
         anim.SetBool("IsAttacking", isAttacking);
+        isFirstAttack = false;
+        isSecondAttack = false;
+        isThirdAttack = false;
+        anim.SetBool("FirstAttack", isFirstAttack);
+        anim.SetBool("SecondAttack", isSecondAttack);
+        anim.SetBool("ThirdAttack", isThirdAttack);
         anim.SetBool("Attack1", false);
     }
 

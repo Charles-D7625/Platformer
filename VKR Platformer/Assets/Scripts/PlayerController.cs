@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     private float movementInputDirection;
     private float jumpTimer;
     private float turnTimer;
@@ -53,6 +52,9 @@ public class PlayerController : MonoBehaviour
     public Transform wallCheck;
 
     public LayerMask whatIsGroud;
+
+    [SerializeField]
+    private GameObject slideParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -281,6 +283,11 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
             }
         }
+    }
+
+    public int GetFacingDirection()
+    {
+        return facingDirection;
     }
 
     private void DisableFlip()
