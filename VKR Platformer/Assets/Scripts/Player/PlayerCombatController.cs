@@ -29,12 +29,14 @@ public class PlayerCombatController : MonoBehaviour
     private Animator anim;
 
     private PlayerController pc;
+    private PlayerStats ps;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("CanAttack", combatEnabled);
         pc = GetComponent<PlayerController>();
+        ps = GetComponent<PlayerStats>();
     }
 
     private void Update()
@@ -147,6 +149,8 @@ public class PlayerCombatController : MonoBehaviour
     private void TakeDamage(float[] attackDetails)
     {
         int direction;
+
+        ps.DecreaseHealth(attackDetails[0]);
 
         if (attackDetails[1] < transform.position.x)
         {
