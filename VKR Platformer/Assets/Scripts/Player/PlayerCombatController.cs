@@ -15,20 +15,26 @@ public class PlayerCombatController : MonoBehaviour
     private LayerMask whatIsDamageable;
 
 
-    private bool gotInput;
-    private bool isAttacking;
-    private bool isFirstAttack;
-    private bool isSecondAttack;
-    private bool isThirdAttack;
+    private bool 
+        gotInput,
+        isAttacking,
+        isFirstAttack,
+        isSecondAttack,
+        isThirdAttack;
+
+    private float[] attackDetails = new float[2];
 
     private float lastInputTime = Mathf.NegativeInfinity;
 
     private Animator anim;
 
+    private PlayerController pc;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("CanAttack", combatEnabled);
+        pc = GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -100,10 +106,13 @@ public class PlayerCombatController : MonoBehaviour
     private void CheckAttack1HitBox()
     {
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack1HitBoxPosition.position, attack1Radius, whatIsDamageable);
-        
+
+        attackDetails[0] = attack1Damage;
+        attackDetails[1] = transform.position.x;
+
         foreach(Collider2D collider in detectedObjects)
         {
-            collider.transform.parent.SendMessage("Damage", attack1Damage);
+            collider.transform.parent.SendMessage("Damage", attackDetails);
             //Instantiate hit particle
         }
     }
@@ -133,6 +142,22 @@ public class PlayerCombatController : MonoBehaviour
         anim.SetBool("SecondAttack", isSecondAttack);
         anim.SetBool("ThirdAttack", isThirdAttack);
         anim.SetBool("Attack1", false);
+    }
+
+    private void TakeDamage(float[] attackDetails)
+    {
+        int direction;
+
+        if (attackDetails[1] < transform.position.x)
+        {
+            direction = 1;
+        }
+        else
+        {
+            direction = -1;
+        }
+
+        pc.Knockback(direction);
     }
 
     private void OnDrawGizmos()
