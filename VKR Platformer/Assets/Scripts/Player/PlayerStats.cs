@@ -9,9 +9,12 @@ public class PlayerStats : MonoBehaviour
 
     private float currentHealth;
 
+    private GameManager gm;
+
     private void Start()
     {
         currentHealth = maxHealth;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void DecreaseHealth(float amount)
@@ -26,6 +29,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
-        //playing die anim
+        gm.Respawn();
+        Destroy(gameObject);
     }
 }

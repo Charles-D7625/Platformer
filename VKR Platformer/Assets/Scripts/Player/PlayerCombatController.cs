@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Bson;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,21 +11,28 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private float inputTimer, attack1Radius, attack1Damage;
     [SerializeField]
+    private float stunDamageAmount = 1.0f;
+    [SerializeField]
     private Transform attack1HitBoxPosition;
     [SerializeField]
     private LayerMask whatIsDamageable;
 
 
-    private bool 
-        gotInput,
-        isAttacking,
-        isFirstAttack,
-        isSecondAttack,
-        isThirdAttack;
+    private bool gotLeftInput;
+    private bool gotRightInput;
+    private bool parryEnabled;
+    private bool isAttacking;
+    private bool isFirstAttack;
+    private bool isSecondAttack;
+    private bool isThirdAttack;
 
-    private float[] attackDetails = new float[2];
+    public bool isOnParryState;
+
+    private AttackDetails attackDetails;
 
     private float lastInputTime = Mathf.NegativeInfinity;
+    private float lastInputRightButtonTime = Mathf.NegativeInfinity;
+    private float parryWindow = 0.4f;
 
     private Animator anim;
 
@@ -37,33 +45,74 @@ public class PlayerCombatController : MonoBehaviour
         anim.SetBool("CanAttack", combatEnabled);
         pc = GetComponent<PlayerController>();
         ps = GetComponent<PlayerStats>();
+
+        parryEnabled = true;
+        isOnParryState = false;
     }
 
     private void Update()
     {
         CheckCombatInput();
         CheckAttacks();
+        CheckParryInput();
+        CheckParry();
     }
 
     private void CheckCombatInput()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if(combatEnabled) 
+            if(combatEnabled && !isOnParryState) 
             {
-                gotInput = true;
+                gotLeftInput = true;
                 lastInputTime= Time.time;
             }
         }
     }
 
+    private void CheckParryInput()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            if(parryEnabled && !isAttacking)
+            {
+                isOnParryState = true;
+                lastInputRightButtonTime = Time.time;
+            }
+        }
+    }
+
+    private void CheckParry()
+    {
+        if(isOnParryState && Input.GetMouseButton(1) && !isAttacking)
+        {
+            parryEnabled = false;
+            if (Time.time <= lastInputRightButtonTime + parryWindow)
+            {
+                anim.SetBool("Parry", true);
+            }
+            else
+            {
+                anim.SetBool("Parry", false);
+                anim.SetBool("Block", true);
+            }
+        }
+
+        if (!Input.GetMouseButton(1))
+        {
+            isOnParryState = false;
+            parryEnabled = true;
+            anim.SetBool("Parry", false);
+            anim.SetBool("Block", false);
+        }
+        
+    }
+
     private void CheckAttacks()
     {
-        if(gotInput) 
+        if(gotLeftInput && !isAttacking && !isOnParryState) 
         {
-            if (!isAttacking)
-            {
-                gotInput = false;
+                gotLeftInput = false;
                 isAttacking = true;
                 
                 if (!isFirstAttack && !isSecondAttack && !isThirdAttack)
@@ -86,14 +135,13 @@ public class PlayerCombatController : MonoBehaviour
                     anim.SetBool("Attack1", true);
                     anim.SetBool("ThirdAttack", isThirdAttack);
                     anim.SetBool("IsAttacking", isAttacking);  
-                }
-            }
+                }   
         }
         
         if(Time.time >= lastInputTime + inputTimer)
         {
             //Wait for new input
-            gotInput = false;
+            gotLeftInput = false;
             isAttacking = false;
             isFirstAttack = false;
             isSecondAttack = false;
@@ -109,8 +157,9 @@ public class PlayerCombatController : MonoBehaviour
     {
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack1HitBoxPosition.position, attack1Radius, whatIsDamageable);
 
-        attackDetails[0] = attack1Damage;
-        attackDetails[1] = transform.position.x;
+        attackDetails.damageAmount = attack1Damage;
+        attackDetails.position = transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
 
         foreach(Collider2D collider in detectedObjects)
         {
@@ -146,22 +195,27 @@ public class PlayerCombatController : MonoBehaviour
         anim.SetBool("Attack1", false);
     }
 
-    private void TakeDamage(float[] attackDetails)
+    
+
+    private void Damage(AttackDetails attackDetails)
     {
         int direction;
 
-        ps.DecreaseHealth(attackDetails[0]);
-
-        if (attackDetails[1] < transform.position.x)
+        if (!isOnParryState)
         {
-            direction = 1;
-        }
-        else
-        {
-            direction = -1;
-        }
+            ps.DecreaseHealth(attackDetails.damageAmount);
 
-        pc.Knockback(direction);
+            if (attackDetails.position.x < transform.position.x)
+            {
+                direction = 1;
+            }
+            else
+            {
+                direction = -1;
+            }
+
+            pc.Knockback(direction);
+        }
     }
 
     private void OnDrawGizmos()
