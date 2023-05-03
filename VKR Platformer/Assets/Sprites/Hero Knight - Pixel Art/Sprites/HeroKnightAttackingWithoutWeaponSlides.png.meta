@@ -1,0 +1,909 @@
+fileFormatVersion: 2
+guid: d217337a9823ca640b004c7c46ae112a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_18
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 385
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d13c46fe220cc488745ca32df6cfa4
+      internalID: -1517897962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_19
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 385
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e12498dbbe83fbc4983e3b671eff0ce1
+      internalID: -2103769247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d9264c7bf1f9434795715bacc3a962d
+      internalID: -1427355389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_21
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1555a4c6faf9d7f46a6e3610cdb6b0f6
+      internalID: -1091433504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_22
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b31f0798bd3a04a912338e7090fa08
+      internalID: -1551072781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_23
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b1efc85d1c4f14b87ac71896b887f3
+      internalID: -556900607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_24
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e054812b66bdae3419baec2dba010eae
+      internalID: -942108378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_25
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e881330c105e64d8bc6ff379a88745
+      internalID: -545953761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_26
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8363a44ddc1d946bed0289c4c59365
+      internalID: 1729215928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_27
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89cdc2ae2a83ff4ca8e82c09c68afd4
+      internalID: -2034210995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_28
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a192d9dbceaf24ca5f9e052377c168
+      internalID: -722197044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_29
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 330
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38dde8baeb042e14ea92caf7e055cdae
+      internalID: -1955151519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 275
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d847ec4c59e7b469f43757201a29a5
+      internalID: -1165956507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_31
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 275
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236f6ff81e72ea546b439d4baee93c49
+      internalID: 441845231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_32
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 275
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e59c2dcf9626c8847b8b3c95c809f581
+      internalID: -1377241272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_33
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 275
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1b04f1f0651d9b4ba75313df3014469
+      internalID: 696476969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_34
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 275
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded7acc9d0a13d74fba98d081db75d38
+      internalID: -1338116386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_35
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 275
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93377a175efac36428ef57921402cb19
+      internalID: 1315109723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_36
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 275
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b3ccc11c25fadf4e9eb5c6b3b7be7e4
+      internalID: -955501230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_58
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 165
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d612d71fb4f914ea41b7f9ef025e65
+      internalID: -205258493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_59
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 165
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b496f1c22a5272843a0176b0c9c89337
+      internalID: 1992690878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d751ca46b03ca56459c2150ad20edc8f
+      internalID: 1902114718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_61
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7faf589016d526468d74091240c0bc4
+      internalID: 557097038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_62
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32132d7978ac94044810deab4a9165fb
+      internalID: 1808790992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_63
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ba833a27e2f4b479d1ad84149e252f
+      internalID: 1200149580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_64
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ac44fa93991ce42b8166495bbc9803
+      internalID: -914864262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_65
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80544d392c5e57242a05e5131fb7df04
+      internalID: 1790437617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_66
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f22ebf0e303e504fa340858049c2c87
+      internalID: -1513234362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_67
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2851bb1c8eae14dbfa6b2c3a45b70b
+      internalID: 406273897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_68
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638f2e898262d5243aca9470562085ff
+      internalID: -1490405892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_69
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 110
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e001195f5ca0aba4d8f1aebd2770e878
+      internalID: 1064178528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeroKnightAttackingWithoutWeaponSlides_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 100
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ac43919921e114bae16460ff3ff3e6
+      internalID: -315747909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      HeroKnightAttackingWithoutWeaponSlides_28: -722197044
+      HeroKnightAttackingWithoutWeaponSlides_60: 1902114718
+      HeroKnightAttackingWithoutWeaponSlides_42: 728019692
+      HeroKnightAttackingWithoutWeaponSlides_73: 1824545437
+      HeroKnightAttackingWithoutWeaponSlides_4: 1856662363
+      HeroKnightAttackingWithoutWeaponSlides_83: -1543327176
+      HeroKnightAttackingWithoutWeaponSlides_23: -556900607
+      HeroKnightAttackingWithoutWeaponSlides_22: -1551072781
+      HeroKnightAttackingWithoutWeaponSlides_26: 1729215928
+      HeroKnightAttackingWithoutWeaponSlides_82: 1717262511
+      HeroKnightAttackingWithoutWeaponSlides_30: -1165956507
+      HeroKnightAttackingWithoutWeaponSlides_34: -1338116386
+      HeroKnightAttackingWithoutWeaponSlides_80: 1957100313
+      HeroKnightAttackingWithoutWeaponSlides_89: 1398749262
+      HeroKnightAttackingWithoutWeaponSlides_86: -944669513
+      HeroKnightAttackingWithoutWeaponSlides_48: -277350060
+      HeroKnightAttackingWithoutWeaponSlides_61: 557097038
+      HeroKnightAttackingWithoutWeaponSlides_67: 406273897
+      HeroKnightAttackingWithoutWeaponSlides_79: -1947102577
+      HeroKnightAttackingWithoutWeaponSlides_2: -1445501482
+      HeroKnightAttackingWithoutWeaponSlides_62: 1808790992
+      HeroKnightAttackingWithoutWeaponSlides_57: 1019862348
+      HeroKnightAttackingWithoutWeaponSlides_64: -914864262
+      HeroKnightAttackingWithoutWeaponSlides_33: 696476969
+      HeroKnightAttackingWithoutWeaponSlides_54: -1178586833
+      HeroKnightAttackingWithoutWeaponSlides_0: -1173382600
+      HeroKnightAttackingWithoutWeaponSlides_13: -1132121822
+      HeroKnightAttackingWithoutWeaponSlides_39: -646770298
+      HeroKnightAttackingWithoutWeaponSlides_25: -545953761
+      HeroKnightAttackingWithoutWeaponSlides_76: 1053915043
+      HeroKnightAttackingWithoutWeaponSlides_51: 888123359
+      HeroKnightAttackingWithoutWeaponSlides_20: -1427355389
+      HeroKnightAttackingWithoutWeaponSlides_21: -1091433504
+      HeroKnightAttackingWithoutWeaponSlides_88: -825431313
+      HeroKnightAttackingWithoutWeaponSlides_14: -981916157
+      HeroKnightAttackingWithoutWeaponSlides_36: -955501230
+      HeroKnightAttackingWithoutWeaponSlides_46: 686366637
+      HeroKnightAttackingWithoutWeaponSlides_85: 1933383042
+      HeroKnightAttackingWithoutWeaponSlides_44: -1556221280
+      HeroKnightAttackingWithoutWeaponSlides_87: 1149027769
+      HeroKnightAttackingWithoutWeaponSlides_27: -2034210995
+      HeroKnightAttackingWithoutWeaponSlides_38: -278337526
+      HeroKnightAttackingWithoutWeaponSlides_58: -205258493
+      HeroKnightAttackingWithoutWeaponSlides_66: -1513234362
+      HeroKnightAttackingWithoutWeaponSlides_35: 1315109723
+      HeroKnightAttackingWithoutWeaponSlides_45: 186147096
+      HeroKnightAttackingWithoutWeaponSlides_3: 1759082180
+      HeroKnightAttackingWithoutWeaponSlides_78: 62492544
+      HeroKnightAttackingWithoutWeaponSlides_68: -1490405892
+      HeroKnightAttackingWithoutWeaponSlides_49: 1002265420
+      HeroKnightAttackingWithoutWeaponSlides_84: 732903978
+      HeroKnightAttackingWithoutWeaponSlides_50: -1104648759
+      HeroKnightAttackingWithoutWeaponSlides_65: 1790437617
+      HeroKnightAttackingWithoutWeaponSlides_10: 545109569
+      HeroKnightAttackingWithoutWeaponSlides_55: -642802379
+      HeroKnightAttackingWithoutWeaponSlides_7: 453177020
+      HeroKnightAttackingWithoutWeaponSlides_11: 1405274362
+      HeroKnightAttackingWithoutWeaponSlides_52: -1127296485
+      HeroKnightAttackingWithoutWeaponSlides_77: -114873746
+      HeroKnightAttackingWithoutWeaponSlides_70: -315747909
+      HeroKnightAttackingWithoutWeaponSlides_75: 1532409703
+      HeroKnightAttackingWithoutWeaponSlides_37: 1123457475
+      HeroKnightAttackingWithoutWeaponSlides_17: -1703429980
+      HeroKnightAttackingWithoutWeaponSlides_31: 441845231
+      HeroKnightAttackingWithoutWeaponSlides_19: -2103769247
+      HeroKnightAttackingWithoutWeaponSlides_56: 690293171
+      HeroKnightAttackingWithoutWeaponSlides_9: 1387954103
+      HeroKnightAttackingWithoutWeaponSlides_1: 1711317384
+      HeroKnightAttackingWithoutWeaponSlides_74: 1728904020
+      HeroKnightAttackingWithoutWeaponSlides_43: 271209975
+      HeroKnightAttackingWithoutWeaponSlides_6: 1840420521
+      HeroKnightAttackingWithoutWeaponSlides_53: 10471570
+      HeroKnightAttackingWithoutWeaponSlides_40: 570293323
+      HeroKnightAttackingWithoutWeaponSlides_32: -1377241272
+      HeroKnightAttackingWithoutWeaponSlides_12: -878794182
+      HeroKnightAttackingWithoutWeaponSlides_69: 1064178528
+      HeroKnightAttackingWithoutWeaponSlides_71: 1815089553
+      HeroKnightAttackingWithoutWeaponSlides_18: -1517897962
+      HeroKnightAttackingWithoutWeaponSlides_81: -763424467
+      HeroKnightAttackingWithoutWeaponSlides_41: 1301044771
+      HeroKnightAttackingWithoutWeaponSlides_72: -40238552
+      HeroKnightAttackingWithoutWeaponSlides_16: -784169689
+      HeroKnightAttackingWithoutWeaponSlides_15: 1512313446
+      HeroKnightAttackingWithoutWeaponSlides_24: -942108378
+      HeroKnightAttackingWithoutWeaponSlides_59: 1992690878
+      HeroKnightAttackingWithoutWeaponSlides_63: 1200149580
+      HeroKnightAttackingWithoutWeaponSlides_29: -1955151519
+      HeroKnightAttackingWithoutWeaponSlides_5: 1915986224
+      HeroKnightAttackingWithoutWeaponSlides_47: -932996809
+      HeroKnightAttackingWithoutWeaponSlides_8: 433238637
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
