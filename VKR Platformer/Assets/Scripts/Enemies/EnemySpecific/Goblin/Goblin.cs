@@ -34,9 +34,9 @@ public class Goblin : Entity
     [SerializeField]
     private Transform meleeAttackPosition;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         moveState = new Goblin_MoveState(stateMashine, this, "move", moveStateData, this);
         idleState = new Goblin_IdleState(stateMashine, this, "idle", idleStateData, this);
@@ -47,23 +47,11 @@ public class Goblin : Entity
         deadState = new Goblin_DeadState(stateMashine, this, "dead", deadStateData, this);
         chargeState = new Goblin_ChargeState(stateMashine, this, "charge", chargeStateData, this);
 
+    }
+    private void Start()
+    {
         stateMashine.Initialize(moveState);
     }
-
-    public override void Damage(AttackDetails attackDetails)
-    {
-        base.Damage(attackDetails);
-
-        if (isDead)
-        {
-            stateMashine.ChangeState(deadState);
-        }
-        else if (isStunned && stateMashine.currentState != stunState)
-        {
-            stateMashine.ChangeState(stunState);
-        }
-    }
-
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();

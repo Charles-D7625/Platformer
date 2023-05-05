@@ -24,15 +24,6 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public PlayerInventory Inventory { get; private set; }
-
-    [SerializeField]
-    private Transform groundCheck;
-    [SerializeField]
-    private Transform wallCheck;
-
-    public Vector2 CurrentVelocity { get; private set; }
-
-    public int FacingDirection { get; private set; }
     
     private Vector2 workSpace;
 
@@ -59,8 +50,6 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         Inventory = GetComponent<PlayerInventory>();
 
-        FacingDirection = 1;
-
         PrimatyAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
 
         StateMashine.Initialize(IdleState);
@@ -68,7 +57,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        CurrentVelocity = RB.velocity;
+        Core.LogicUpdate();
         StateMashine.CurrentState.LogicUpdate();
     }
 
@@ -77,38 +66,9 @@ public class Player : MonoBehaviour
         StateMashine.CurrentState.PhysicsUpdate();
     }
 
-    public bool CheckIfGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, playerData.groundCheckRadius, playerData.whatIsGround);
-    }
-
-    public bool CheckIfTouchingWall()
-    {
-        return Physics2D.Raycast(wallCheck.position, Vector2.right * FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
-    }
-
-    public bool CheckIfTouchingWallBack()
-    {
-        return Physics2D.Raycast(wallCheck.position, Vector2.right * -FacingDirection, playerData.wallCheckDistance, playerData.whatIsGround);
-    }
-
-    public void CheckIfShouldFlip(int xInput)
-    {
-        if(xInput != 0 && xInput != FacingDirection) 
-        {
-            Flip();
-        }
-    }
-
     private void AnimationTrigger() => StateMashine.CurrentState.AnimationTrigger();
 
     private void AnimationFinishTrigger() => StateMashine.CurrentState.AnimationFinishTrigger();
-
-    public void Flip()
-    {
-        FacingDirection *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
-    }
 
     /*private void OnDrawGizmos()
     {

@@ -30,7 +30,7 @@ public class DeadState : State
     {
         base.LogicUpdate();
 
-        if (Time.time <= startTime + stateData.timeDeadAnimation)
+        /*if (Time.time <= startTime + stateData.timeDeadAnimation)
         {
             entity.anim.SetFloat("health", entity.currentHealth);
             entity.aliveGO.layer = 8; // dead layer
@@ -40,7 +40,7 @@ public class DeadState : State
             entity.deadGO.transform.position = entity.aliveGO.transform.position;
             entity.aliveGO.SetActive(false);
             entity.deadGO.SetActive(true);
-        }
+        }*/
     }
 
     public override void PhysicsUpdate()

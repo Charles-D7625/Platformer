@@ -28,8 +28,8 @@ public class PlayerTouchingWallState : PlayerState
     {
         base.DoChecks();
 
-        isGrounded = player.CheckIfGrounded();
-        isTouchingWall = player.CheckIfTouchingWall();
+        isGrounded = core.CollisionsSences.Ground;
+        isTouchingWall = core.CollisionsSences.WallFront;
     }
 
     public override void Enter()
@@ -60,7 +60,7 @@ public class PlayerTouchingWallState : PlayerState
         {
             playerStateMashine.ChangeState(player.IdleState);
         }
-        else if(!isTouchingWall || xInput != player.FacingDirection)
+        else if(!isTouchingWall || xInput != core.Movement.FacingDirection)
         {
             playerStateMashine.ChangeState(player.InAirState);
         }
