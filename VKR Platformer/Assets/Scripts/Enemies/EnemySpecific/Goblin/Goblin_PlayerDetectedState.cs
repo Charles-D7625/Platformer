@@ -43,7 +43,7 @@ public class Goblin_PlayerDetectedState : PlayerDetectedState
         }
         else if (!isDetectedLedge)
         {
-            core.Movement.Flip();
+            Movement?.Flip();
             stateMashine.ChangeState(goblin.moveState);
         }
     }

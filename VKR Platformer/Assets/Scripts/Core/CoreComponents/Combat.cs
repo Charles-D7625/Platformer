@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Combat : CoreComponent, IDamageable, IKnockbackable
 {
+    private CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
+    private CollisionsSences collisionsSences;
+    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
+    private Stats Stats { get => stats ??= core.GetCoreComponent<Stats>(); }
+    private Stats stats;
+
     [SerializeField] private float maxKnockbackTime = 0.2f;
 
     private bool isKnobackActive;
@@ -17,23 +25,23 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     public void Damage(float amount)
     {
         Debug.Log(core.transform.parent.name + " damaged");
-        core.Stats.DecreaseHealth(amount);
+        Stats?.DecreaseHealth(amount);
     }
 
     public void Knockback(Vector2 angle, float strenght, int direction)
     {
-        core.Movement.SetVelocity(strenght, angle, direction);
-        core.Movement.CanSetVelocity = false;
+        Movement?.SetVelocity(strenght, angle, direction);
+        Movement.CanSetVelocity = false;
         isKnobackActive = true;
         knockbackStartTime = Time.time;
     }
 
     private void CheckKnockback()
     {
-        if (isKnobackActive && (core.Movement.CurrentVelocity.y <= 0.01f && core.CollisionsSences.Ground) || Time.time >= knockbackStartTime + maxKnockbackTime)
+        if (isKnobackActive && (Movement.CurrentVelocity.y <= 0.01f && CollisionsSences.Ground) || Time.time >= knockbackStartTime + maxKnockbackTime)
         {
             isKnobackActive = false;
-            core.Movement.CanSetVelocity = true;
+            Movement.CanSetVelocity = true;
         }
     }
 }

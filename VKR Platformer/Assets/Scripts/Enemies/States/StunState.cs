@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class StunState : State
 {
+    private CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
+    private CollisionsSences collisionsSences;
+    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     protected D_StunState stateData;
 
     protected bool isStunTimeOver;
@@ -20,7 +25,11 @@ public class StunState : State
     {
         base.DoChecks();
 
-        isGrounded = core.CollisionsSences.Ground;
+        if (CollisionsSences)
+        {
+            isGrounded = CollisionsSences.Ground;
+        }
+
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
     }
@@ -31,7 +40,7 @@ public class StunState : State
 
         isStunTimeOver = false;
         isMovementStopped = false;
-        core.Movement.SetVelocity(stateData.stunKnockbackSpeed, stateData.stunKnockbackAngle, entity.lastDamageDirection);
+        Movement?.SetVelocity(stateData.stunKnockbackSpeed, stateData.stunKnockbackAngle, entity.lastDamageDirection);
     }
 
     public override void Exit()
@@ -52,7 +61,7 @@ public class StunState : State
         if(isGrounded && Time.time >= startTime + stateData.stunTime && !isMovementStopped)
         {
             isMovementStopped = true;
-            core.Movement.SetVelocityX(0.0f);
+            Movement?.SetVelocityX(0.0f);
         }
     }
 

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CollisionsSences : CoreComponent
 {
+    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     public Transform GroundCheck 
     {
         get => GenericNotImplementedError<Transform>.TryGet(groundCheck, core.transform.parent.name);
@@ -44,12 +47,12 @@ public class CollisionsSences : CoreComponent
 
     public bool WallFront
     {
-        get => Physics2D.Raycast(WallCheck.position, Vector2.right * core.Movement.FacingDirection, wallCheckDistance, whatIsGround);
+        get => Physics2D.Raycast(WallCheck.position, Vector2.right * Movement.FacingDirection, wallCheckDistance, whatIsGround);
     }
 
     public bool WallBack
     {
-        get => Physics2D.Raycast(WallCheck.position, Vector2.right * -core.Movement.FacingDirection, wallCheckDistance, whatIsGround);
+        get => Physics2D.Raycast(WallCheck.position, Vector2.right * -Movement.FacingDirection, wallCheckDistance, whatIsGround);
     }
 
     public bool LedgeVertical

@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class MoveState : State
 {
+    private CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
+    private CollisionsSences collisionsSences;
+    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     protected D_MoveState stateData;
 
     protected bool isDetectingWall;
@@ -19,15 +24,18 @@ public class MoveState : State
     {
         base.DoChecks();
 
-        isDetectingLedge = core.CollisionsSences.LedgeVertical;
-        isDetectingWall = core.CollisionsSences.WallFront;
+        if (CollisionsSences)
+        {
+            isDetectingLedge = CollisionsSences.LedgeVertical;
+            isDetectingWall = CollisionsSences.WallFront;
+        }
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
     }
 
     public override void Enter()
     {
         base.Enter();
-        core.Movement.SetVelocityX(stateData.movementSpeed * core.Movement.FacingDirection); 
+        Movement?.SetVelocityX(stateData.movementSpeed * Movement.FacingDirection); 
     }
 
     public override void Exit()
@@ -39,7 +47,7 @@ public class MoveState : State
     {
         base.LogicUpdate();
 
-        core.Movement.SetVelocityX(stateData.movementSpeed * core.Movement.FacingDirection);
+        Movement?.SetVelocityX(stateData.movementSpeed * Movement.FacingDirection);
     }
 
     public override void PhysicsUpdate()
