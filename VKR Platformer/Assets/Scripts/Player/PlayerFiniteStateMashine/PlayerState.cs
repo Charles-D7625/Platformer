@@ -17,8 +17,6 @@ public class PlayerState
 
     private string animBoolName;
 
-
-
     public PlayerState(Player player, PlayerStateMashine playerStateMashine, PlayerData playerData, string animBoolName)
     {
         this.player = player;

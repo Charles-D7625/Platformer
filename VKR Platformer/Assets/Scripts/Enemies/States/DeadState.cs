@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DeadState : State
 {
+    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    private Movement movement;
+
     protected D_DeadState stateData;
 
     public DeadState(FiniteStateMashine stateMashine, Entity entity, string animBoolName, D_DeadState stateData) : base(stateMashine, entity, animBoolName)
@@ -30,17 +33,7 @@ public class DeadState : State
     {
         base.LogicUpdate();
 
-        /*if (Time.time <= startTime + stateData.timeDeadAnimation)
-        {
-            entity.anim.SetFloat("health", entity.currentHealth);
-            entity.aliveGO.layer = 8; // dead layer
-        }
-        else
-        {
-            entity.deadGO.transform.position = entity.aliveGO.transform.position;
-            entity.aliveGO.SetActive(false);
-            entity.deadGO.SetActive(true);
-        }*/
+        Movement?.SetVelocityX(0.0f);
     }
 
     public override void PhysicsUpdate()

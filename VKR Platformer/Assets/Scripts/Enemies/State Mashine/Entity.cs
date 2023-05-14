@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    private CollisionsSences CollisionsSences { get => collisionsSences ??= Core.GetCoreComponent<CollisionsSences>(); }
+    private CollisionsSences collisionsSences;
     private Movement Movement { get => movement ??= Core.GetCoreComponent<Movement>(); }
     private Movement movement;
+    public Stats Stats { get => stats ??= Core.GetCoreComponent<Stats>(); }
+    private Stats stats;
 
     public FiniteStateMashine stateMashine;
 
@@ -16,12 +20,8 @@ public class Entity : MonoBehaviour
     public AnimationToStatemashine atsm { get; private set; }
     public Core Core { get; private set; }
 
-    [SerializeField] private Transform wallCheck;
-    [SerializeField] private Transform ledgeCheck;
     [SerializeField] private Transform playerCheck;
-    [SerializeField] private Transform groundCheck;
 
-    public float currentHealth { get; private set; }
     private float currentStunResistence;
     private float lastDamageTime;
 
@@ -30,13 +30,11 @@ public class Entity : MonoBehaviour
     private Vector2 velocityWorkspace;
 
     protected bool isStunned;
-    protected bool isDead;
 
     public virtual void Awake()
     {
         Core = GetComponentInChildren<Core>();
 
-        currentHealth = entityData.maxHealth;
         currentStunResistence = entityData.stunResistance;
 
         anim = GetComponent<Animator>();
@@ -76,6 +74,11 @@ public class Entity : MonoBehaviour
     {
         return Physics2D.Raycast(playerCheck.position, transform.right, entityData.closeRangeActionDistance, entityData.whatIsPlayer);
     }
+    public virtual bool CheckHit()
+    {
+        return Stats.isHitActive;
+    }
+
 
     public virtual void DamageHop(float velocity)
     {
@@ -93,12 +96,15 @@ public class Entity : MonoBehaviour
     {
         if(Core != null)
         {
-            Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.left * Movement.FacingDirection * entityData.wallCheckDistance));
-            Gizmos.DrawLine(ledgeCheck.position, ledgeCheck.position + (Vector3)(Vector2.down * entityData.ledgeCheckDistance));
+            if (CollisionsSences)
+            {
+                Gizmos.DrawLine(collisionsSences.WallCheck.position, collisionsSences.WallCheck.position + (Vector3)(Vector2.left * Movement.FacingDirection * collisionsSences.GroundCheckRadius));
+                Gizmos.DrawLine(collisionsSences.LedgeCheckVertical.position, collisionsSences.LedgeCheckVertical.position + (Vector3)(Vector2.down * collisionsSences.WallCheckDistance));
 
-            Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.closeRangeActionDistance), 0.2f);
-            Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.minAgroDistance), 0.2f);
-            Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.maxAgroDistance), 0.2f);
-        } 
+                Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.closeRangeActionDistance), 0.2f);
+                Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.minAgroDistance), 0.2f);
+                Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.maxAgroDistance), 0.2f);
+            }   
+        }
     }
 }

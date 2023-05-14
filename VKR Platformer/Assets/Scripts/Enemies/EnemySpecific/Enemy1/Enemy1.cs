@@ -14,26 +14,17 @@ public class Enemy1 : Entity
     public E1_DeadState deadState { get; private set; }
     public E1_HitState hitState { get; private set; }
 
-    [SerializeField]
-    private Transform meleeAttackPosition;
-    [SerializeField]
-    private D_IdleState idleStateData;
-    [SerializeField]
-    private D_MoveState moveStateData;
-    [SerializeField]
-    private D_PlayerDeteceted playerDetectedData;
-    [SerializeField]
-    private D_ChargeState chargeStateData;
-    [SerializeField]
-    private D_LookForPlayer lookForPlayerStateData;
-    [SerializeField]
-    private D_MeleeAttack meleeAttackStateData;
-    [SerializeField]
-    private D_StunState stunStateData;
-    [SerializeField]
-    private D_DeadState deadStateData;
-    [SerializeField]
-    private D_HitState hitStateData;
+    [SerializeField] private Transform meleeAttackPosition;
+
+    [SerializeField] private D_IdleState idleStateData;
+    [SerializeField] private D_MoveState moveStateData;
+    [SerializeField] private D_PlayerDeteceted playerDetectedData;
+    [SerializeField] private D_ChargeState chargeStateData;
+    [SerializeField] private D_LookForPlayer lookForPlayerStateData;
+    [SerializeField] private D_MeleeAttack meleeAttackStateData;
+    [SerializeField] private D_StunState stunStateData;
+    [SerializeField] private D_DeadState deadStateData;
+    [SerializeField] private D_HitState hitStateData;
     public override void Awake()
     {
         base.Awake();
@@ -48,9 +39,6 @@ public class Enemy1 : Entity
         stunState = new E1_StunState(stateMashine, this, "stun", stunStateData, this);
         deadState = new E1_DeadState(stateMashine, this, "dead", deadStateData, this);
         hitState = new E1_HitState(stateMashine, this, "hit", hitStateData, this);
-
-        
-
     }
     private void Start()
     {

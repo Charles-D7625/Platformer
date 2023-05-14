@@ -14,6 +14,7 @@ public class IdleState : State
     protected bool flipAfterIdle;
     protected bool isIdleTimeOver;
     protected bool isPlayerInMinAgroRange;
+    protected bool isHitted;
 
     protected float idleTime;
 
@@ -26,6 +27,7 @@ public class IdleState : State
     {
         base.DoChecks();
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isHitted = entity.CheckHit();
     }
 
     public override void Enter()

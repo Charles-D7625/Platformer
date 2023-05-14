@@ -15,6 +15,7 @@ public class MoveState : State
     protected bool isDetectingWall;
     protected bool isDetectingLedge;
     protected bool isPlayerInMinAgroRange;
+    protected bool isHitted;
     public MoveState(FiniteStateMashine stateMashine, Entity entity, string animBoolName, D_MoveState stateData) : base(stateMashine, entity, animBoolName)
     {
         this.stateData = stateData;
@@ -30,6 +31,7 @@ public class MoveState : State
             isDetectingWall = CollisionsSences.WallFront;
         }
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isHitted = entity.CheckHit();
     }
 
     public override void Enter()

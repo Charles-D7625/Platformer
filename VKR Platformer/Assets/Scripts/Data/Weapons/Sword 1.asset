@@ -17,14 +17,14 @@ MonoBehaviour:
     movementSpeed: 3
     damageAmount: 12
     knockbackStrength: 10
-    knockbackAngle: {x: 2, y: 1}
+    knockbackAngle: {x: 1, y: 0.1}
   - attackName: Second Attack
     movementSpeed: 2
     damageAmount: 8
     knockbackStrength: 7
-    knockbackAngle: {x: 1, y: 1}
+    knockbackAngle: {x: 1, y: 0.1}
   - attackName: Third Attack
     movementSpeed: 4
     damageAmount: 12
     knockbackStrength: 15
-    knockbackAngle: {x: 2, y: 2}
+    knockbackAngle: {x: 2, y: 1}

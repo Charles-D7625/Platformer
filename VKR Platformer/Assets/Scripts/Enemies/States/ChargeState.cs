@@ -25,10 +25,13 @@ public class ChargeState : State
     {
         base.DoChecks();
 
+        if (CollisionsSences)
+        {
+            isDetectingLedge = CollisionsSences.LedgeVertical;
+            isDetectingWall = CollisionsSences.WallFront;
+        }
+        
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
-        isDetectingLedge = CollisionsSences.LedgeVertical;
-        isDetectingWall = CollisionsSences.WallFront;
-
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
     }
 

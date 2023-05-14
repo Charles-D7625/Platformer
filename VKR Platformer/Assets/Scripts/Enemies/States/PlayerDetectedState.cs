@@ -16,6 +16,7 @@ public class PlayerDetectedState : State
     protected bool performLongRangeAction;
     protected bool performCloseRangeAction;
     protected bool isDetectedLedge;
+    protected bool isHitted;
 
     public PlayerDetectedState(FiniteStateMashine stateMashine, Entity entity, string animBoolName, D_PlayerDeteceted stateData) : base(stateMashine, entity, animBoolName)
     {
@@ -34,6 +35,7 @@ public class PlayerDetectedState : State
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        isHitted = entity.CheckHit();
     }
 
     public override void Enter()

@@ -30,8 +30,11 @@ public class E1_ChargeState : ChargeState
     {
         base.LogicUpdate();
 
-
-        if (performCloseRangeAction)
+        if (enemy.Stats.currentHealth <= 0)
+        {
+            stateMashine.ChangeState(enemy.deadState);
+        }
+        else if (performCloseRangeAction)
         {
             stateMashine.ChangeState(enemy.meleeAttackState);
         }

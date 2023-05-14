@@ -25,11 +25,19 @@ public class E1_IdleState : IdleState
     {
         base.LogicUpdate();
 
-        if(isPlayerInMinAgroRange)
+        if (enemy.Stats.currentHealth <= 0)
+        {
+            stateMashine.ChangeState(enemy.deadState);
+        }
+        else if (isHitted)
+        {
+            stateMashine.ChangeState(enemy.hitState);
+        }
+        else if (isPlayerInMinAgroRange)
         {
             stateMashine.ChangeState(enemy.playerDetectedState);
         }
-        else if(isIdleTimeOver)
+        else if (isIdleTimeOver)
         {
             stateMashine.ChangeState(enemy.moveState);
         }

@@ -35,7 +35,11 @@ public class E1_MeleeAttackState : MeleeAttackState
     {
         base.LogicUpdate();
 
-        if(isAnimationFinish)
+        if (enemy.Stats.currentHealth <= 0)
+        {
+            stateMashine.ChangeState(enemy.deadState);
+        }
+        else if (isAnimationFinish)
         {
             if(isPlayerInMinAgroRange)
             {

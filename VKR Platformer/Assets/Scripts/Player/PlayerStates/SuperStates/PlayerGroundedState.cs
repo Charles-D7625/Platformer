@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerGroundedState : PlayerState
 {
-    protected int xInput;
-
     protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     private Movement movement;
 
     private CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
     private CollisionsSences collisionsSences;
+    
+    protected int xInput;
 
     private bool jumpInput;
     private bool isGrounded;

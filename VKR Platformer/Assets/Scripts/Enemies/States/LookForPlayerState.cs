@@ -15,6 +15,7 @@ public class LookForPlayerState : State
     protected bool isPlayerInMinAgroRange;
     protected bool isAllTurnsDone;
     protected bool isAllTurnsTimeDone;
+    protected bool isHitted;
 
     protected float lastTurnTime;
 
@@ -30,6 +31,7 @@ public class LookForPlayerState : State
         base.DoChecks();
 
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isHitted = entity.CheckHit();
     }
 
     public override void Enter()

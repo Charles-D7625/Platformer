@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerAbilityState : PlayerState
 {
-    protected bool isAbilityDone;
 
     protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     private Movement movement;
 
     private CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
     private CollisionsSences collisionsSences;
+
+    protected bool isAbilityDone;
 
     private bool isGrounded;
 

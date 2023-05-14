@@ -25,7 +25,15 @@ public class E1_MoveState : MoveState
     {
         base.LogicUpdate();
 
-        if(isPlayerInMinAgroRange) 
+        if(enemy.Stats.currentHealth <= 0)
+        {
+            stateMashine.ChangeState(enemy.deadState);
+        }
+        else  if (isHitted)
+        {
+            stateMashine.ChangeState(enemy.hitState);
+        }
+        else if(isPlayerInMinAgroRange) 
         {
             stateMashine.ChangeState(enemy.playerDetectedState);
         }

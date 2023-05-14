@@ -24,7 +24,6 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 
     public void Damage(float amount)
     {
-        Debug.Log(core.transform.parent.name + " damaged");
         Stats?.DecreaseHealth(amount);
     }
 

@@ -30,7 +30,11 @@ public class E1_LookForPlayerState : LookForPlayerState
     {
         base.LogicUpdate();
 
-        if (isPlayerInMinAgroRange)
+        if (enemy.Stats.currentHealth <= 0)
+        {
+            stateMashine.ChangeState(enemy.deadState);
+        }
+        else if (isPlayerInMinAgroRange)
         {
             stateMashine.ChangeState(enemy.playerDetectedState);
         }

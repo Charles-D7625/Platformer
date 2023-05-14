@@ -6,9 +6,9 @@ public class PlayerTouchingWallState : PlayerState
 {
     protected bool isGrounded;
     protected bool isTouchingWall;
-    protected int xInput;
     protected bool jumpInput;
 
+    protected int xInput;
     protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     private Movement movement;
 

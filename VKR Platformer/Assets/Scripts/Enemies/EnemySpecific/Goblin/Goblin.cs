@@ -14,22 +14,14 @@ public class Goblin : Entity
     public Goblin_DeadState deadState { get; private set; }
     public Goblin_ChargeState chargeState { get; private set; }
 
-    [SerializeField]
-    private D_IdleState idleStateData;
-    [SerializeField]
-    private D_MoveState moveStateData;
-    [SerializeField]
-    private D_PlayerDeteceted playerDetectedData;
-    [SerializeField]
-    private D_MeleeAttack meleeAttackStateData;
-    [SerializeField]
-    private D_LookForPlayer lookForPlayerStateData;
-    [SerializeField]
-    private D_StunState stunStateData;
-    [SerializeField]
-    private D_DeadState deadStateData;
-    [SerializeField]
-    private D_ChargeState chargeStateData;
+    [SerializeField] private D_IdleState idleStateData;
+    [SerializeField] private D_MoveState moveStateData;
+    [SerializeField] private D_PlayerDeteceted playerDetectedData;
+    [SerializeField] private D_MeleeAttack meleeAttackStateData;
+    [SerializeField] private D_LookForPlayer lookForPlayerStateData;
+    [SerializeField] private D_StunState stunStateData;
+    [SerializeField] private D_DeadState deadStateData;
+    [SerializeField] private D_ChargeState chargeStateData;
 
     [SerializeField]
     private Transform meleeAttackPosition;

@@ -17,16 +17,13 @@ public class Player : MonoBehaviour
     public PlayerAttackState PrimatyAttackState { get; protected set; }
     public PlayerAttackState SecondaryAttackState { get; protected set; }
 
-    [SerializeField]
-    private PlayerData playerData;
+    [SerializeField] private PlayerData playerData;
 
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public PlayerInventory Inventory { get; private set; }
     
-    private Vector2 workSpace;
-
     private void Awake()
     {
         Core = GetComponentInChildren<Core>();

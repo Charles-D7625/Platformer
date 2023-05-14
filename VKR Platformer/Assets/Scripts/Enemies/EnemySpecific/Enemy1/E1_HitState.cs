@@ -30,19 +30,26 @@ public class E1_HitState : HitState
     {
         base.LogicUpdate();
 
-        if (performCloseRangeAction)
+        if (enemy.Stats.currentHealth <= 0)
         {
-            stateMashine.ChangeState(enemy.meleeAttackState);
+            stateMashine.ChangeState(enemy.deadState);
         }
-        else if (isPlayerInMinAgroRange)
+        else if (isHitTimaOver)
         {
-            stateMashine.ChangeState(enemy.playerDetectedState);
-        }
-        else
-        {
-            enemy.lookForPlayerState.SetTurnImmediatly(true);
-            stateMashine.ChangeState(enemy.lookForPlayerState);
-        }
+            if (performCloseRangeAction)
+            {
+                stateMashine.ChangeState(enemy.meleeAttackState);
+            }
+            else if (isPlayerInMinAgroRange)
+            {
+                stateMashine.ChangeState(enemy.playerDetectedState);
+            }
+            else
+            {
+                enemy.lookForPlayerState.SetTurnImmediatly(true);
+                stateMashine.ChangeState(enemy.lookForPlayerState);
+            }
+        }  
     }
 
     public override void PhysicsUpdate()
