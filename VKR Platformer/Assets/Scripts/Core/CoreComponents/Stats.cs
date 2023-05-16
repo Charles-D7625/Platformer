@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stats : CoreComponent
 {
     public event Action OnHealthZero;
-
+    
     [SerializeField] private float maxHealth;
+
     public float currentHealth { get; private set; }
 
     public bool isHitActive;
@@ -24,7 +26,6 @@ public class Stats : CoreComponent
     {
         isHitActive = true;
         currentHealth -= amount;
-
 
         if (currentHealth <= 0) 
         {

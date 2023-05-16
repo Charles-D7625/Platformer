@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public PlayerInventory Inventory { get; private set; }
-    
+
     private void Awake()
     {
         Core = GetComponentInChildren<Core>();
