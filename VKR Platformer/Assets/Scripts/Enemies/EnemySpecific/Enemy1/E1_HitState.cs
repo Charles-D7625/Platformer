@@ -30,11 +30,7 @@ public class E1_HitState : HitState
     {
         base.LogicUpdate();
 
-        if (enemy.Stats.currentHealth <= 0)
-        {
-            stateMashine.ChangeState(enemy.deadState);
-        }
-        else if (isHitTimaOver)
+        if (isHitTimaOver)
         {
             if (performCloseRangeAction)
             {

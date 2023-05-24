@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ChargeState : State
 {
-    private CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
+    protected CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
     private CollisionsSences collisionsSences;
-    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     private Movement movement;
 
     protected D_ChargeState stateData;
@@ -16,6 +16,7 @@ public class ChargeState : State
     protected bool isDetectingWall;
     protected bool isChargeTimeOver;
     protected bool performCloseRangeAction;
+    protected bool performCloseRangeActionWithShield;
     public ChargeState(FiniteStateMashine stateMashine, Entity entity, string animBoolName, D_ChargeState stateData) : base(stateMashine, entity, animBoolName)
     {
         this.stateData = stateData;
@@ -27,12 +28,12 @@ public class ChargeState : State
 
         if (CollisionsSences)
         {
-            isDetectingLedge = CollisionsSences.LedgeVertical;
             isDetectingWall = CollisionsSences.WallFront;
         }
         
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        performCloseRangeActionWithShield = entity.CheckPlayerInCloseRangeActionWithShield();
     }
 
     public override void Enter()

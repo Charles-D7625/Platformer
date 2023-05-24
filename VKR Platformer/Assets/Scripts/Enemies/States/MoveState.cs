@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MoveState : State
 {
-    private CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
+    protected CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
     private CollisionsSences collisionsSences;
     private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     private Movement movement;
@@ -27,7 +27,6 @@ public class MoveState : State
 
         if (CollisionsSences)
         {
-            isDetectingLedge = CollisionsSences.LedgeVertical;
             isDetectingWall = CollisionsSences.WallFront;
         }
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();

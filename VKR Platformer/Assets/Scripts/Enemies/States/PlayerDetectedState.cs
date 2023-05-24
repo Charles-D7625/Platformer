@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerDetectedState : State
 {
-    private CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
+    protected CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
     private CollisionsSences collisionsSences;
     protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     private Movement movement;
@@ -15,6 +15,7 @@ public class PlayerDetectedState : State
     protected bool isPlayerInMaxAgroRange;
     protected bool performLongRangeAction;
     protected bool performCloseRangeAction;
+    protected bool performCloseRangeActionWithShield;
     protected bool isDetectedLedge;
     protected bool isHitted;
 
@@ -27,14 +28,10 @@ public class PlayerDetectedState : State
     {
         base.DoChecks();
 
-        if (CollisionsSences)
-        {
-            isDetectedLedge = CollisionsSences.LedgeVertical;
-        }
-
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
+        performCloseRangeActionWithShield = entity.CheckPlayerInCloseRangeActionWithShield();
         isHitted = entity.CheckHit();
     }
 

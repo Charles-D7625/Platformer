@@ -19,8 +19,6 @@ public class Death : CoreComponent
     protected override void Awake()
     {
         base.Awake();
-
-        
     }
 
     public override void LogicUpdate()
@@ -30,9 +28,8 @@ public class Death : CoreComponent
 
     public void Die()
     {
-        DeadGO.transform.position = core.transform.parent.position;
+        GameObject.Instantiate(DeadGO, core.transform.parent.position, core.transform.parent.rotation);
         core.transform.parent.gameObject.SetActive(false);
-        DeadGO.SetActive(true);
     }
 
     private void OnEnable()

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HitState : State
 {
-    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     private Movement movement;
 
     protected D_HitState stateData;

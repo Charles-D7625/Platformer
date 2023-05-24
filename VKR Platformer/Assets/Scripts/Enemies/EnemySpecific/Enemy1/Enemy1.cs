@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class Enemy1 : Entity
@@ -29,7 +30,6 @@ public class Enemy1 : Entity
     {
         base.Awake();
 
-
         moveState = new E1_MoveState(stateMashine, this, "move", moveStateData, this);
         idleState = new E1_IdleState(stateMashine, this, "idle", idleStateData, this);
         playerDetectedState = new E1_PlayerDetecetedState(stateMashine, this, "playerDetected", playerDetectedData, this);
@@ -43,6 +43,16 @@ public class Enemy1 : Entity
     private void Start()
     {
         stateMashine.Initialize(moveState);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (Stats.currentHealth <= 0)
+        {
+            stateMashine.ChangeState(deadState);
+        }
     }
 
     public override void OnDrawGizmos()

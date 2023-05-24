@@ -44,6 +44,16 @@ public class Goblin : Entity
     {
         stateMashine.Initialize(moveState);
     }
+
+    public override void Update()
+    {
+        base.Update();
+
+        if (Stats.currentHealth <= 0)
+        {
+            stateMashine.ChangeState(deadState);
+        }
+    }
     public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();

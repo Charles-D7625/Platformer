@@ -14,6 +14,11 @@ public class E1_ChargeState : ChargeState
     public override void DoChecks()
     {
         base.DoChecks();
+
+        if (CollisionsSences)
+        {
+            isDetectingLedge = CollisionsSences.LedgeVertical;
+        }
     }
 
     public override void Enter()
@@ -29,12 +34,8 @@ public class E1_ChargeState : ChargeState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if (enemy.Stats.currentHealth <= 0)
-        {
-            stateMashine.ChangeState(enemy.deadState);
-        }
-        else if (performCloseRangeAction)
+        
+        if (performCloseRangeAction)
         {
             stateMashine.ChangeState(enemy.meleeAttackState);
         }

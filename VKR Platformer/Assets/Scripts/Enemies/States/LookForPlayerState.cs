@@ -6,7 +6,7 @@ public class LookForPlayerState : State
 {
     private CollisionsSences CollisionsSences { get => collisionsSences ??= core.GetCoreComponent<CollisionsSences>(); }
     private CollisionsSences collisionsSences;
-    private Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
+    protected Movement Movement { get => movement ??= core.GetCoreComponent<Movement>(); }
     private Movement movement;
 
     protected D_LookForPlayer stateData;

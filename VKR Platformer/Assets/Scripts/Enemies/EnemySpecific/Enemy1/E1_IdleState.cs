@@ -25,11 +25,7 @@ public class E1_IdleState : IdleState
     {
         base.LogicUpdate();
 
-        if (enemy.Stats.currentHealth <= 0)
-        {
-            stateMashine.ChangeState(enemy.deadState);
-        }
-        else if (isHitted)
+        if (isHitted)
         {
             stateMashine.ChangeState(enemy.hitState);
         }

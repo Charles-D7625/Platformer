@@ -46,6 +46,11 @@ public class PlayerGroundedState : PlayerState
         xInput = player.InputHandler.NormInputX;
         jumpInput = player.InputHandler.JumpInput;
 
+        if (Stats.currentHealth <= 0)
+        {
+            playerStateMashine.ChangeState(player.DeadState);
+        }
+
         if (player.InputHandler.AttackInputs[(int)CombatInputs.primary])
         {
             playerStateMashine.ChangeState(player.PrimatyAttackState);

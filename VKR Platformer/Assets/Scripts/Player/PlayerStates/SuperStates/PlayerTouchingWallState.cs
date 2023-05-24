@@ -59,6 +59,10 @@ public class PlayerTouchingWallState : PlayerState
 
         jumpInput = player.InputHandler.JumpInput;
 
+        if (Stats.currentHealth <= 0)
+        {
+            playerStateMashine.ChangeState(player.DeadState);
+        }
 
         if (jumpInput)
         {

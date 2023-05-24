@@ -14,6 +14,11 @@ public class Goblin_ChargeState : ChargeState
     public override void DoChecks()
     {
         base.DoChecks();
+
+        if (CollisionsSences)
+        {
+            isDetectingLedge = CollisionsSences.LedgeVertical;
+        }
     }
 
     public override void Enter()

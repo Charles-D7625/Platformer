@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    private CollisionsSences CollisionsSences { get => collisionsSences ??= Core.GetCoreComponent<CollisionsSences>(); }
-    private CollisionsSences collisionsSences;
-    private Movement Movement { get => movement ??= Core.GetCoreComponent<Movement>(); }
-    private Movement movement;
+    protected CollisionsSences CollisionsSences { get => collisionsSences ??= Core.GetCoreComponent<CollisionsSences>(); }
+    protected CollisionsSences collisionsSences;
+    protected Movement Movement { get => movement ??= Core.GetCoreComponent<Movement>(); }
+    protected Movement movement;
     public Stats Stats { get => stats ??= Core.GetCoreComponent<Stats>(); }
     private Stats stats;
 
@@ -20,7 +20,7 @@ public class Entity : MonoBehaviour
     public AnimationToStatemashine atsm { get; private set; }
     public Core Core { get; private set; }
 
-    [SerializeField] private Transform playerCheck;
+    [SerializeField] protected Transform playerCheck;
 
     private float currentStunResistence;
     private float lastDamageTime;
@@ -74,6 +74,11 @@ public class Entity : MonoBehaviour
     {
         return Physics2D.Raycast(playerCheck.position, transform.right, entityData.closeRangeActionDistance, entityData.whatIsPlayer);
     }
+
+    public virtual bool CheckPlayerInCloseRangeActionWithShield()
+    {
+        return Physics2D.Raycast(playerCheck.position, transform.right, entityData.closeRangeActionDistance, entityData.whatIsShield);
+    }
     public virtual bool CheckHit()
     {
         return Stats.isHitActive;
@@ -98,8 +103,8 @@ public class Entity : MonoBehaviour
         {
             if (CollisionsSences)
             {
-                Gizmos.DrawLine(collisionsSences.WallCheck.position, collisionsSences.WallCheck.position + (Vector3)(Vector2.left * Movement.FacingDirection * collisionsSences.GroundCheckRadius));
-                Gizmos.DrawLine(collisionsSences.LedgeCheckVertical.position, collisionsSences.LedgeCheckVertical.position + (Vector3)(Vector2.down * collisionsSences.WallCheckDistance));
+                Gizmos.DrawLine(collisionsSences.WallCheck.position, collisionsSences.WallCheck.position + (Vector3)(Vector2.left * Movement.FacingDirection * collisionsSences.WallCheckDistance));
+                Gizmos.DrawLine(collisionsSences.LedgeCheckVertical.position, collisionsSences.LedgeCheckVertical.position + (Vector3)(Vector2.down * collisionsSences.GroundCheckRadius));
 
                 Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.closeRangeActionDistance), 0.2f);
                 Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.minAgroDistance), 0.2f);

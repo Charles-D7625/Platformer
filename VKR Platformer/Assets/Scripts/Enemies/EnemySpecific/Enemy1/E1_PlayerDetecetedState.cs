@@ -11,6 +11,16 @@ public class E1_PlayerDetecetedState : PlayerDetectedState
         this.enemy = enemy;
     }
 
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        if (CollisionsSences)
+        {
+            isDetectedLedge = CollisionsSences.LedgeVertical;
+        }
+    }
+
     public override void Enter()
     {
         base.Enter();
@@ -25,11 +35,7 @@ public class E1_PlayerDetecetedState : PlayerDetectedState
     {
         base.LogicUpdate();
 
-        if (enemy.Stats.currentHealth <= 0)
-        {
-            stateMashine.ChangeState(enemy.deadState);
-        }
-        else if (performCloseRangeAction)
+        if (performCloseRangeAction)
         {
             stateMashine.ChangeState(enemy.meleeAttackState);
         }

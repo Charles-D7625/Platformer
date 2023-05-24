@@ -65,6 +65,19 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void OnBlockInput(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            AttackInputs[(int)CombatInputs.second] = true;
+        }
+
+        if (context.canceled)
+        {
+            AttackInputs[(int)CombatInputs.second] = false;
+        }
+    }
+
     public void UseJumpInput() => JumpInput = false;
 
     private void CheckJumpInputHoldTime()
@@ -79,4 +92,5 @@ public class PlayerInputHandler : MonoBehaviour
 public enum CombatInputs
 {
     primary,
+    second,
 }

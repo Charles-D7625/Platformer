@@ -57,7 +57,7 @@ public class CollisionsSences : CoreComponent
 
     public bool LedgeVertical
     {
-        get => Physics2D.Raycast(LedgeCheckVertical.position, Vector2.down, wallCheckDistance, whatIsGround);
+        get => Physics2D.Raycast(LedgeCheckVertical.position, Vector2.down, groundCheckRadius, whatIsGround);
     }
 
 }

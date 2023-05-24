@@ -18,6 +18,6 @@ public class D_Entity : ScriptableObject
     public float closeRangeActionDistance = 1.0f;
 
     public LayerMask whatIsPlayer;
-
+    public LayerMask whatIsShield;
 
 }

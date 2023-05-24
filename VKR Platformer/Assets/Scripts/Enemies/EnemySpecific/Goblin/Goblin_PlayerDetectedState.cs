@@ -13,6 +13,11 @@ public class Goblin_PlayerDetectedState : PlayerDetectedState
     public override void DoChecks()
     {
         base.DoChecks();
+
+        if (CollisionsSences)
+        {
+            isDetectedLedge = CollisionsSences.LedgeVertical;
+        }
     }
 
     public override void Enter()

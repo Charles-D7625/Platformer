@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerState
 {
+    public Stats Stats { get => stats ??= core.GetCoreComponent<Stats>(); }
+    private Stats stats;
+
     protected Core core;
 
     protected Player player;

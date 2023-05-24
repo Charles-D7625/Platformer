@@ -11,6 +11,16 @@ public class E1_MoveState : MoveState
         this.enemy = enemy;
     }
 
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        if (CollisionsSences)
+        {
+            isDetectingLedge = CollisionsSences.LedgeVertical;
+        }
+    }
+
     public override void Enter()
     {
         base.Enter();
@@ -25,11 +35,7 @@ public class E1_MoveState : MoveState
     {
         base.LogicUpdate();
 
-        if(enemy.Stats.currentHealth <= 0)
-        {
-            stateMashine.ChangeState(enemy.deadState);
-        }
-        else  if (isHitted)
+        if (isHitted)
         {
             stateMashine.ChangeState(enemy.hitState);
         }

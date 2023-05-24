@@ -33,11 +33,14 @@ public class DeadState : State
     {
         base.LogicUpdate();
 
-        Movement?.SetVelocityX(0.0f);
+        
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        Movement?.SetVelocityX(0.0f);
+        Movement?.SetVelocityY(0.0f);
     }
 }

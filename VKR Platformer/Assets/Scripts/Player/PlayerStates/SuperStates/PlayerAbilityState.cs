@@ -45,7 +45,12 @@ public class PlayerAbilityState : PlayerState
     {
         base.LogicUpdate();
 
-        if(isAbilityDone)
+        if (Stats.currentHealth <= 0)
+        {
+            playerStateMashine.ChangeState(player.DeadState);
+        }
+
+        if (isAbilityDone)
         {
             if (isGrounded && Movement?.CurrentVelocity.y < 0.01f)
             {

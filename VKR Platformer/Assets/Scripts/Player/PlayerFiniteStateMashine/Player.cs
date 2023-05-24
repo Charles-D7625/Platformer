@@ -15,7 +15,8 @@ public class Player : MonoBehaviour
     public PlayerWallSlideState WallSlideState { get; private set;}
     public PlayerWallJumpState WallJumpState { get; protected set;}
     public PlayerAttackState PrimatyAttackState { get; protected set; }
-    public PlayerAttackState SecondaryAttackState { get; protected set; }
+    public PlayerAttackState SecondaryAttackState { get; protected set; } //Defensive state
+    public PlayerDeadState DeadState { get; protected set; }
 
     [SerializeField] private PlayerData playerData;
 
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         WallJumpState = new PlayerWallJumpState(this, StateMashine, playerData, "inAir");
         PrimatyAttackState = new PlayerAttackState(this, StateMashine, playerData, "attack");
         SecondaryAttackState = new PlayerAttackState(this, StateMashine, playerData, "attack");
+        DeadState = new PlayerDeadState(this, StateMashine, playerData, "dead");
     }
 
     private void Start()
