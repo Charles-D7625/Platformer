@@ -9,14 +9,12 @@ public class Weapon : MonoBehaviour
     protected Animator baseAnimator;
     protected Animator weaponAnimator;
 
-    protected PlayerAttackState state;
+    protected PlayerAttackState attackState;
+    protected PlayerDefensiveState defensiveState;
+
+    protected Player player;
 
     protected Core core;
-
-    protected int attackCounter;
-
-    protected float endAttackTime;
-    protected float resetAttackTime = 0.3f;
 
     protected virtual void Awake()
     {
@@ -29,54 +27,36 @@ public class Weapon : MonoBehaviour
     public virtual void EnterWeapon()
     {
         gameObject.SetActive(true);
-
-        if (attackCounter >= weaponData.amountOfAttacks || Time.time >= endAttackTime + resetAttackTime)
-        {
-            attackCounter = 0;
-        }
-
-        baseAnimator.SetBool("attack", true);
-        weaponAnimator.SetBool("attack", true);
-
-        baseAnimator.SetInteger("attackCounter", attackCounter);
-        weaponAnimator.SetInteger("attackCounter", attackCounter);
     }
 
     public virtual void ExitWeapon()
     {
-        endAttackTime = Time.time;
-
-        baseAnimator.SetBool("attack", false);
-        weaponAnimator.SetBool("attack", false);
-
-        attackCounter++;
-
         gameObject.SetActive(false);
     }
 
     public virtual void AnimationFinishTrigger()
     {
-        state.AnimationFinishTrigger();
+
     }
 
     public virtual void AnimationStartMovementTrigger()
     {
-        state.SetPlayerVelocity(weaponData.movementSpeed[attackCounter]);
+
     }
 
     public virtual void AnimationStopMovementTrigger()
     {
-        state.SetPlayerVelocity(0.0f);
+
     }
 
     public virtual void AnimationTurnOffFlipTrigger()
     {
-        state.SetFlipCheck(false);
+
     }
 
     public virtual void AnimationTurnOnFlipTrigger()
     {
-        state.SetFlipCheck(true);
+
     }
 
     public virtual void AnimationActionTrigger()
@@ -84,9 +64,15 @@ public class Weapon : MonoBehaviour
 
     }
 
-    public void InitialzeWeapon(PlayerAttackState state, Core core)
+    public void InitialzeAggressiveWeapon(PlayerAttackState attackState, Core core)
     {
-        this.state = state;
+        this.attackState = attackState;
+        this.core = core;
+    }
+
+    public void InitialzeDefensiveWeapon(PlayerDefensiveState defensiveState, Core core)
+    {
+        this.defensiveState = defensiveState;
         this.core = core;
     }
 }

@@ -13,3 +13,11 @@ public struct WeaponAttackDetails
     public Vector2 knockbackAngle;
 
 }
+
+[System.Serializable]
+public struct WeaponDefendDetails
+{
+    public float knockbackStrength;
+    public Vector2 knockbackAngle;
+
+}

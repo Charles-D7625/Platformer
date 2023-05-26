@@ -50,7 +50,7 @@ public class PlayerInputHandler : MonoBehaviour
         NormInputY = (int)(RawMovementInput * Vector2.up).normalized.y;
     }
 
-    public void onJumpInput(InputAction.CallbackContext context)
+    public void OnJumpInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
@@ -67,7 +67,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnBlockInput(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             AttackInputs[(int)CombatInputs.second] = true;
         }

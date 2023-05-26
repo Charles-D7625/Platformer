@@ -13,6 +13,11 @@ public class AggressiveWeapon : Weapon
     private List<IDamageable> detectedDamageables = new List<IDamageable>();
     private List<IKnockbackable> detectedKnockbackable = new List<IKnockbackable>();
 
+    protected int attackCounter;
+
+    protected float endAttackTime;
+    protected float resetAttackTime = 0.3f;
+
     protected override void Awake()
     {
         base.Awake();
@@ -27,11 +32,74 @@ public class AggressiveWeapon : Weapon
         }
     }
 
+    public override void EnterWeapon()
+    {
+        base.EnterWeapon();
+
+        if (attackCounter >= weaponData.amountOfAttacks || Time.time >= endAttackTime + resetAttackTime)
+        {
+            attackCounter = 0;
+        }
+
+        baseAnimator.SetBool("attack", true);
+        weaponAnimator.SetBool("attack", true);
+
+        baseAnimator.SetInteger("attackCounter", attackCounter);
+        weaponAnimator.SetInteger("attackCounter", attackCounter);
+    }
+
+    public override void ExitWeapon()
+    {
+        endAttackTime = Time.time;
+
+        baseAnimator.SetBool("attack", false);
+        weaponAnimator.SetBool("attack", false);
+
+        attackCounter++;
+
+        base.ExitWeapon();
+    }
+
     public override void AnimationActionTrigger()
     {
         base.AnimationActionTrigger();
 
         CheckMeleeAttack();
+    }
+
+    public override void AnimationFinishTrigger()
+    {
+        base.AnimationFinishTrigger();
+
+        attackState.AnimationFinishTrigger();
+    }
+
+    public override void AnimationStartMovementTrigger()
+    {
+        base.AnimationStartMovementTrigger();
+
+        attackState.SetPlayerVelocity(weaponData.movementSpeed[attackCounter]);
+    }
+
+    public override void AnimationStopMovementTrigger()
+    {
+        base.AnimationStopMovementTrigger();
+
+        attackState.SetPlayerVelocity(0.0f);
+    }
+
+    public override void AnimationTurnOffFlipTrigger()
+    {
+        base.AnimationTurnOffFlipTrigger();
+
+        attackState.SetFlipCheck(false);
+    }
+
+    public override void AnimationTurnOnFlipTrigger()
+    {
+        base.AnimationTurnOnFlipTrigger();
+
+        attackState.SetFlipCheck(true);
     }
 
     private void CheckMeleeAttack()

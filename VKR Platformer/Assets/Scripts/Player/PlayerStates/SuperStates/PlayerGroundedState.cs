@@ -55,6 +55,10 @@ public class PlayerGroundedState : PlayerState
         {
             playerStateMashine.ChangeState(player.PrimatyAttackState);
         }
+        else if (player.InputHandler.AttackInputs[(int)CombatInputs.second])
+        {
+            playerStateMashine.ChangeState(player.DefensiveState);
+        }
         else if (jumpInput && player.JumpState.CanJump())
         {
             playerStateMashine.ChangeState(player.JumpState);

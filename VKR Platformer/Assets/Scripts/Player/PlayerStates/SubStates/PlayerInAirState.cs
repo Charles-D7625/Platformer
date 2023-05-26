@@ -87,6 +87,10 @@ public class PlayerInAirState : PlayerState
         {
             playerStateMashine.ChangeState(player.PrimatyAttackState);
         }
+        else if(player.InputHandler.AttackInputs[(int)CombatInputs.second])
+        {
+            playerStateMashine.ChangeState(player.DefensiveState);
+        }
         else if (isGrounded && Movement?.CurrentVelocity.y < 0.01f)
         {
             playerStateMashine.ChangeState(player.IdleState);

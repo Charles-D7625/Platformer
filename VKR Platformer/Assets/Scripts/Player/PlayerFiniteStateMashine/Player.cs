@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public PlayerWallSlideState WallSlideState { get; private set;}
     public PlayerWallJumpState WallJumpState { get; protected set;}
     public PlayerAttackState PrimatyAttackState { get; protected set; }
-    public PlayerAttackState SecondaryAttackState { get; protected set; } //Defensive state
+    public PlayerDefensiveState DefensiveState { get; protected set; } //Defensive state
     public PlayerDeadState DeadState { get; protected set; }
 
     [SerializeField] private PlayerData playerData;
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         WallSlideState = new PlayerWallSlideState(this, StateMashine, playerData, "wallSlide");
         WallJumpState = new PlayerWallJumpState(this, StateMashine, playerData, "inAir");
         PrimatyAttackState = new PlayerAttackState(this, StateMashine, playerData, "attack");
-        SecondaryAttackState = new PlayerAttackState(this, StateMashine, playerData, "attack");
+        DefensiveState = new PlayerDefensiveState(this, StateMashine, playerData, "shield");
         DeadState = new PlayerDeadState(this, StateMashine, playerData, "dead");
     }
 
@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
         Inventory = GetComponent<PlayerInventory>();
 
         PrimatyAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
+        DefensiveState.SetWeapon(Inventory.weapons[(int)CombatInputs.second]);
 
         StateMashine.Initialize(IdleState);
     }
