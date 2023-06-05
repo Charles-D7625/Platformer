@@ -15,6 +15,16 @@ public class PlayerDefensiveState : PlayerAbilityState
 
     }
 
+    public override void DoChecks()
+    {
+        base.DoChecks();
+
+        if (!player.InputHandler.AttackInputs[(int)(CombatInputs.second)])
+        {
+            isAbilityDone = true;
+        }
+    }
+
     public override void Enter()
     {
         base.Enter();
@@ -32,7 +42,9 @@ public class PlayerDefensiveState : PlayerAbilityState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        
+
+        Movement?.SetVelocityX(0.0f);
+
         xInput = player.InputHandler.NormInputX;
 
         if (shouldCheckFlip)

@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class D_Entity : ScriptableObject
 {
-    public float damageHopSpeed = 3.0f;
-
     public float maxAgroDistance = 12.0f;
     public float minAgroDistance = 10.0f;
 
@@ -18,6 +16,4 @@ public class D_Entity : ScriptableObject
     public float closeRangeActionDistance = 1.0f;
 
     public LayerMask whatIsPlayer;
-    public LayerMask whatIsShield;
-
 }

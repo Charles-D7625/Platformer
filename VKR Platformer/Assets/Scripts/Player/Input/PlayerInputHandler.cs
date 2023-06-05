@@ -87,6 +87,11 @@ public class PlayerInputHandler : MonoBehaviour
             JumpInput = false;
         }
     }
+
+    public void OnQuitInput(InputAction.CallbackContext context)
+    {
+        Application.Quit();
+    }
 }
 
 public enum CombatInputs

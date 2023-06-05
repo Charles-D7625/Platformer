@@ -16,7 +16,6 @@ public class ChargeState : State
     protected bool isDetectingWall;
     protected bool isChargeTimeOver;
     protected bool performCloseRangeAction;
-    protected bool performCloseRangeActionWithShield;
     public ChargeState(FiniteStateMashine stateMashine, Entity entity, string animBoolName, D_ChargeState stateData) : base(stateMashine, entity, animBoolName)
     {
         this.stateData = stateData;
@@ -33,7 +32,6 @@ public class ChargeState : State
         
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
-        performCloseRangeActionWithShield = entity.CheckPlayerInCloseRangeActionWithShield();
     }
 
     public override void Enter()

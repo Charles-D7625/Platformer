@@ -30,7 +30,11 @@ public class Goblin_IdleState : IdleState
     {
         base.LogicUpdate();
 
-        if (isPlayerInMinAgroRange)
+        if (isHitted)
+        {
+            stateMashine.ChangeState(goblin.hitState);
+        }
+        else if(isPlayerInMinAgroRange)
         {
             stateMashine.ChangeState(goblin.playerDetectedState);
         }

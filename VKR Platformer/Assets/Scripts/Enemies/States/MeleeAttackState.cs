@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.U2D.IK;
 
 public class MeleeAttackState : AttackState
 {
@@ -12,6 +11,9 @@ public class MeleeAttackState : AttackState
     private Movement movement;
 
     protected D_MeleeAttack stateData;
+
+    private int playerBlockCount = 0;
+    private int playerDamageCount = 0;
 
     public MeleeAttackState(FiniteStateMashine stateMashine, Entity entity, string animBoolName, Transform attackPosition, D_MeleeAttack stateData) : base(stateMashine, entity, animBoolName, attackPosition)
     {
@@ -31,6 +33,11 @@ public class MeleeAttackState : AttackState
     public override void Exit()
     {
         base.Exit();
+
+        if (playerDamageCount == 0)
+        {
+            PlayerPrefs.SetInt("Untouchable", 1);
+        }
     }
 
     public override void FinishAttack()
@@ -55,24 +62,53 @@ public class MeleeAttackState : AttackState
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, stateData.attackRadius, stateData.whatIsPlayer);
 
         Collider2D[] detectedShield = Physics2D.OverlapCircleAll(attackPosition.position, stateData.attackRadius, stateData.whatIsShield);
-        
+
+        Collider2D shieldCollider = null;
+
+        foreach (Collider2D collider in detectedShield)
+        {
+            if (collider != null)
+            {
+                shieldCollider = collider;
+            }
+        }
+
+
         foreach (Collider2D collider in detectedObjects)
         {
             IDamageable damageable = collider.GetComponent<IDamageable>();
 
-            if(damageable != null)
+            if (damageable != null && shieldCollider == null)
             {
                 damageable.Damage(stateData.attackDamage);
             }
 
             IKnockbackable knockbackable = collider.GetComponent<IKnockbackable>();
 
-            if (knockbackable != null)
+            if (knockbackable != null && shieldCollider != null)
+            {
+                knockbackable.Knockback(stateData.KnockbackAngle, stateData.knockbackStrenght - 2, Movement.FacingDirection);
+
+                //Block Achievement
+                PlayerPrefs.SetInt("First block", 1);
+
+                //PlayerPrefs.SetInt("Block", ); ÎØÈÁÊÀ ÄÎÄÅËÀÉ
+
+                if(playerBlockCount >= 5)
+                {
+                    PlayerPrefs.SetInt("Guardian", 1);
+                }
+                
+
+            }
+            else if (knockbackable != null)
             {
                 knockbackable.Knockback(stateData.KnockbackAngle, stateData.knockbackStrenght, Movement.FacingDirection);
+
+                //If the player takes damage, the achievement is lost.
+                playerDamageCount++;
+                
             }
         }
-
-        
     }
 }

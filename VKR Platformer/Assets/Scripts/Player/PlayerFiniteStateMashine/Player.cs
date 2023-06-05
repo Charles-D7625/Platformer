@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public PlayerWallSlideState WallSlideState { get; private set;}
     public PlayerWallJumpState WallJumpState { get; protected set;}
     public PlayerAttackState PrimatyAttackState { get; protected set; }
-    public PlayerDefensiveState DefensiveState { get; protected set; } //Defensive state
+    public PlayerDefensiveState DefensiveState { get; protected set; }
     public PlayerDeadState DeadState { get; protected set; }
 
     [SerializeField] private PlayerData playerData;

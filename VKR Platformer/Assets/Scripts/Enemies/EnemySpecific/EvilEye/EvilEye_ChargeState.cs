@@ -31,7 +31,7 @@ public class EvilEye_ChargeState : ChargeState
     {
         base.LogicUpdate();
 
-        if (performCloseRangeAction || performCloseRangeActionWithShield)
+        if (performCloseRangeAction)
         {
             stateMashine.ChangeState(evilEye.meleeAttackState);
         }

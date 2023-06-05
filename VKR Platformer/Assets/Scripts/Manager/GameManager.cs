@@ -5,42 +5,26 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private Transform respawnPoint;
-    [SerializeField]
-    private GameObject player;
-    [SerializeField]
-    private float respawnTime;
+    public static GameManager Instance;
 
-    private float respawnTimeStart;
+    private float startGame;
 
-    private bool respawn;
-
-    private CinemachineVirtualCamera CVC;
+    private void Awake()
+    {
+        if (Instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            
+            DontDestroyOnLoad(this);
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
-        CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
-    }
-
-    private void Update()
-    {
-        CheckRespawn();
-    }
-
-    public void Respawn()
-    {
-        respawnTimeStart = Time.time;
-        respawn= true;
-    }
-
-    private void CheckRespawn()
-    {
-        if(Time.time >= respawnTimeStart + respawnTime && respawn) 
-        {
-            var playerTemo = Instantiate(player, respawnPoint);
-            CVC.m_Follow = playerTemo.transform;
-            respawn = false;
-        }
+        startGame = Time.time;
     }
 }

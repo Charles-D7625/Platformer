@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Goblin_MeleeAttackStateData
   m_EditorClassIdentifier: 
   attackRadius: 0.8
-  attackDamage: 10
+  attackDamage: 7
+  KnockbackAngle: {x: 1, y: 1}
+  knockbackStrenght: 10
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
+  whatIsShield:
+    serializedVersion: 2
+    m_Bits: 2048

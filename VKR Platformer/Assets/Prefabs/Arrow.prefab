@@ -128,6 +128,9 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
+  whatIsShield:
+    serializedVersion: 2
+    m_Bits: 2048
   damagePosition: {fileID: 5359005650222034127}
 --- !u!1 &9180066894794340316
 GameObject:

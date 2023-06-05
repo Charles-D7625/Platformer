@@ -29,7 +29,6 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
-        gm.Respawn();
         Destroy(gameObject);
     }
 }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc04cfb6a267fae449a9a950dbb45df5, type: 3}
   m_Name: Goblin_DetectedStateData
   m_EditorClassIdentifier: 
-  longRangeActionTime: 1.5
+  longRangeActionTime: 0.4

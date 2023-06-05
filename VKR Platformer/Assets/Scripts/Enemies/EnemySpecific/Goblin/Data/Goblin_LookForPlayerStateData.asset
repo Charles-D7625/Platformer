@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Goblin_LookForPlayerStateData
   m_EditorClassIdentifier: 
   amountOfTurns: 2
-  timeBetweenTurns: 0.25
+  timeBetweenTurns: 0.2

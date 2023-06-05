@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec9f462f38eec6458fe179d1812f05d, type: 3}
   m_Name: EvilEye_MeleeAttackStateData
   m_EditorClassIdentifier: 
-  attackRadius: 0.7
-  attackDamage: 10
+  attackRadius: 0.8
+  attackDamage: 6
   KnockbackAngle: {x: 1, y: 1}
   knockbackStrenght: 10
   whatIsPlayer:

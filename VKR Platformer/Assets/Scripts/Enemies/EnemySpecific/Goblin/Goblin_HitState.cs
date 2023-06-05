@@ -30,18 +30,21 @@ public class Goblin_HitState : HitState
     {
         base.LogicUpdate();
 
-        if (performCloseRangeAction)
+        if (isHitTimaOver)
         {
-            stateMashine.ChangeState(goblin.meleeAttackState);
-        }
-        else if (isPlayerInMinAgroRange)
-        {
-            stateMashine.ChangeState(goblin.playerDetectedState);
-        }
-        else
-        {
-            goblin.lookForPlayerState.SetTurnImmediatly(true);
-            stateMashine.ChangeState(goblin.lookForPlayerState);
+            if (performCloseRangeAction)
+            {
+                stateMashine.ChangeState(goblin.meleeAttackState);
+            }
+            else if (isPlayerInMinAgroRange)
+            {
+                stateMashine.ChangeState(goblin.playerDetectedState);
+            }
+            else
+            {
+                goblin.lookForPlayerState.SetTurnImmediatly(true);
+                stateMashine.ChangeState(goblin.lookForPlayerState);
+            }
         }
     }
 

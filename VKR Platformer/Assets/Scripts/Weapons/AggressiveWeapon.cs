@@ -124,7 +124,6 @@ public class AggressiveWeapon : Weapon
         
         if (damageable != null)
         {
-
             detectedDamageables.Add(damageable);
         }
 

@@ -29,7 +29,8 @@ public class Death : CoreComponent
     public void Die()
     {
         GameObject.Instantiate(DeadGO, core.transform.parent.position, core.transform.parent.rotation);
-        core.transform.parent.gameObject.SetActive(false);
+        Destroy(core.transform.parent.gameObject);
+        //core.transform.parent.gameObject.SetActive(false);
     }
 
     private void OnEnable()

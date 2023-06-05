@@ -75,10 +75,6 @@ public class Entity : MonoBehaviour
         return Physics2D.Raycast(playerCheck.position, transform.right, entityData.closeRangeActionDistance, entityData.whatIsPlayer);
     }
 
-    public virtual bool CheckPlayerInCloseRangeActionWithShield()
-    {
-        return Physics2D.Raycast(playerCheck.position, transform.right, entityData.closeRangeActionDistance, entityData.whatIsShield);
-    }
     public virtual bool CheckHit()
     {
         return Stats.isHitActive;

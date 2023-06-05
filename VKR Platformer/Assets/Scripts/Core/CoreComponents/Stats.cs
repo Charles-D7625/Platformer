@@ -3,19 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Stats : CoreComponent
 {
     public event Action OnHealthZero;
-    
+
     [SerializeField] private float maxHealth;
     [SerializeField] private float deadAnimDuration;
 
     private float lastHitTime;
 
     public float currentHealth { get; private set; }
-
+    
     public bool isHitActive;
 
     protected override void Awake()
@@ -33,7 +34,17 @@ public class Stats : CoreComponent
 
             OnHealthZero?.Invoke();
 
-            Debug.Log("Health " + currentHealth);
+            if (core.transform.parent.tag == "Player")
+            {
+                PlayerPrefs.SetInt("Immortal knight", 0);
+                Destroy(GameObject.Find("GameManager(Clone)"));
+                SceneManager.LoadScene("MainMenu");
+            }
+
+            if(core.transform.parent.tag == "Enemy")
+            {
+                PlayerPrefs.SetInt("First blood", 1);
+            }
         }
     }
 
@@ -41,7 +52,7 @@ public class Stats : CoreComponent
     {
         isHitActive = true;
         currentHealth -= amount;
-        lastHitTime = Time.time;     
+        lastHitTime = Time.time;
     }
 
     public void IncreaseHealth(float amount)

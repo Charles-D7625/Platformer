@@ -15,7 +15,6 @@ public class PlayerDetectedState : State
     protected bool isPlayerInMaxAgroRange;
     protected bool performLongRangeAction;
     protected bool performCloseRangeAction;
-    protected bool performCloseRangeActionWithShield;
     protected bool isDetectedLedge;
     protected bool isHitted;
 
@@ -31,7 +30,6 @@ public class PlayerDetectedState : State
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
         performCloseRangeAction = entity.CheckPlayerInCloseRangeAction();
-        performCloseRangeActionWithShield = entity.CheckPlayerInCloseRangeActionWithShield();
         isHitted = entity.CheckHit();
     }
 

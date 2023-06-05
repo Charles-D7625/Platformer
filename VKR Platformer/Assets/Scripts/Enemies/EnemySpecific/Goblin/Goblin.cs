@@ -13,6 +13,7 @@ public class Goblin : Entity
     public Goblin_StunState stunState { get; private set; }
     public Goblin_DeadState deadState { get; private set; }
     public Goblin_ChargeState chargeState { get; private set; }
+    public Goblin_HitState hitState { get; private set; }
 
     [SerializeField] private D_IdleState idleStateData;
     [SerializeField] private D_MoveState moveStateData;
@@ -22,6 +23,7 @@ public class Goblin : Entity
     [SerializeField] private D_StunState stunStateData;
     [SerializeField] private D_DeadState deadStateData;
     [SerializeField] private D_ChargeState chargeStateData;
+    [SerializeField] private D_HitState hitStateData;
 
     [SerializeField]
     private Transform meleeAttackPosition;
@@ -38,6 +40,7 @@ public class Goblin : Entity
         stunState = new Goblin_StunState(stateMashine, this, "stun", stunStateData, this);
         deadState = new Goblin_DeadState(stateMashine, this, "dead", deadStateData, this);
         chargeState = new Goblin_ChargeState(stateMashine, this, "charge", chargeStateData, this);
+        hitState = new Goblin_HitState(stateMashine, this, "hit", hitStateData, this);
 
     }
     private void Start()
