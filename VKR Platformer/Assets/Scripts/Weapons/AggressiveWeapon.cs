@@ -13,6 +13,11 @@ public class AggressiveWeapon : Weapon
     private List<IDamageable> detectedDamageables = new List<IDamageable>();
     private List<IKnockbackable> detectedKnockbackable = new List<IKnockbackable>();
 
+    private AudioSource audioSource;
+
+    [SerializeField] private AudioClip firstSwordSwingSound;
+    [SerializeField] private AudioClip lastSwordSwingSound;
+    
     protected int attackCounter;
 
     protected float endAttackTime;
@@ -30,6 +35,8 @@ public class AggressiveWeapon : Weapon
         {
             Debug.LogError("Wrong data for the weapon");
         }
+
+        audioSource = transform.parent.GetComponent<AudioSource>();
     }
 
     public override void EnterWeapon()
@@ -65,6 +72,15 @@ public class AggressiveWeapon : Weapon
         base.AnimationActionTrigger();
 
         CheckMeleeAttack();
+
+        if (attackCounter == 2)
+        {
+            audioSource.PlayOneShot(lastSwordSwingSound);
+        }
+        else
+        {
+            audioSource.PlayOneShot(firstSwordSwingSound);
+        }
     }
 
     public override void AnimationFinishTrigger()
@@ -141,7 +157,6 @@ public class AggressiveWeapon : Weapon
 
         if (damageable != null)
         {
-
             detectedDamageables.Remove(damageable);
         }
 

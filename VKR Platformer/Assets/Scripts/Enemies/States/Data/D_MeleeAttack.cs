@@ -14,4 +14,7 @@ public class D_MeleeAttack : ScriptableObject
 
     public LayerMask whatIsPlayer;
     public LayerMask whatIsShield;
+
+    public AudioClip meleeAttackSound;
+    public AudioClip shieldAttackSound;
 }

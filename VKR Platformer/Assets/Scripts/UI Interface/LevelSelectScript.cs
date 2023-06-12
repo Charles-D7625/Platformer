@@ -10,8 +10,11 @@ public class LevelSelectScript : MonoBehaviour
 
     private int levelCount;
 
+    private AudioSource audioSource;
     private void Start()
     {
+        audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
+
         CheckSaveData();
 
         levelButtons = GameObject.Find("LevelButtons").GetComponentsInChildren<Button>();
@@ -48,5 +51,9 @@ public class LevelSelectScript : MonoBehaviour
     public void LoadLevel3()
     {
         SceneManager.LoadScene("ThirdLevel");
+    }
+    public void ButtonClickSound()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }

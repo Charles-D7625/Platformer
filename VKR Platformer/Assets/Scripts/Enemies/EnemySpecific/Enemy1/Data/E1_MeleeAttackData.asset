@@ -22,3 +22,5 @@ MonoBehaviour:
   whatIsShield:
     serializedVersion: 2
     m_Bits: 2048
+  meleeAttackSound: {fileID: 8300000, guid: 6b2d718e793592f42b0b5fd8cdc52c08, type: 3}
+  shieldAttackSound: {fileID: 8300000, guid: 8af3fe4af24ead8449fd1a5c46ab2d36, type: 3}

@@ -20,6 +20,11 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     public override void LogicUpdate()
     {
         CheckKnockback();
+
+        if(Stats?.currentHealth <= 0)
+        {
+            GetComponent<Collider2D>().enabled = false;
+        }
     }
 
     public void Damage(float amount)

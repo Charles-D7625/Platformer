@@ -41,7 +41,8 @@ public class E1_ChargeState : ChargeState
         }
         else if (!isDetectingLedge || isDetectingWall)
         {
-            stateMashine.ChangeState(enemy.lookForPlayerState);
+            Movement?.Flip();
+            stateMashine.ChangeState(enemy.moveState);
         }
         else if (isChargeTimeOver)
         {

@@ -55,6 +55,9 @@ public class Archer_RangeAttackState : RangeAttackState
 
     public override void TriggerAttack()
     {
-        base.TriggerAttack(); 
+        archer.audioSource.PlayOneShot(stateData.arrowSound);
+
+        base.TriggerAttack();
+
     }
 }

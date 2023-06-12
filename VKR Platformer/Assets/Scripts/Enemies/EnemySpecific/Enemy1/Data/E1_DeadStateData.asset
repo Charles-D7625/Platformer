@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509a67c3c5e8a6048a173b57d84eeb23, type: 3}
   m_Name: E1_DeadStateData
   m_EditorClassIdentifier: 
-  deadGO: {fileID: 0}
+  timeDeadAnimation: 1

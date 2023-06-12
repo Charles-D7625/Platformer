@@ -46,11 +46,6 @@ public class Goblin_PlayerDetectedState : PlayerDetectedState
         {
             stateMashine.ChangeState(goblin.lookForPlayerState);
         }
-        else if (!isDetectedLedge)
-        {
-            Movement?.Flip();
-            stateMashine.ChangeState(goblin.moveState);
-        }
     }
 
     public override void PhysicsUpdate()

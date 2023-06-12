@@ -18,8 +18,11 @@ public class SetAchievementScript : MonoBehaviour
 
     protected List<GameObject> list = new List<GameObject>();
 
+    private AudioSource audioSource;
+
     private void Start()
     {
+        audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
         SetAchievements();
     }
 
@@ -42,9 +45,9 @@ public class SetAchievementScript : MonoBehaviour
 
             Image[] titles = achiv.GetComponentsInChildren<Image>();
 
-            TMP_Text[] descriptions = titles[1].GetComponentsInChildren<TMP_Text>();
+            TMP_Text[] descriptions = titles[0].GetComponentsInChildren<TMP_Text>();
             
-            titles[0].GetComponent<Image>().sprite = arraySprite[0];
+            titles[1].GetComponent<Image>().sprite = arraySprite[0];
 
             descriptions[0].GetComponent<TMP_Text>().text = arrayDescription[i];
             descriptions[1].GetComponent<TMP_Text>().text = arrayTitles[i];
@@ -54,37 +57,37 @@ public class SetAchievementScript : MonoBehaviour
                 case 0: // You are a winner
                     if (PlayerPrefs.GetInt(arrayTitles[i]) == 1)
                     {
-                        titles[0].GetComponent<Image>().sprite = arraySprite[1];
+                        titles[1].GetComponent<Image>().sprite = arraySprite[1];
                     }
                     break;
                 case 1: // Untouchable
                     if (PlayerPrefs.GetInt(arrayTitles[i]) == 1 && PlayerPrefs.GetInt("You are a winner") == 1)
                     {
-                        titles[0].GetComponent<Image>().sprite = arraySprite[1];
+                        titles[1].GetComponent<Image>().sprite = arraySprite[1];
                     }
                     break;
                 case 2: // Immortal knight
                     if(PlayerPrefs.GetInt(arrayTitles[i]) == 0 && PlayerPrefs.GetInt("You are a winner") == 1)
                     {
-                        titles[0].GetComponent<Image>().sprite = arraySprite[1];
+                        titles[1].GetComponent<Image>().sprite = arraySprite[1];
                     }
                     break;
                 case 3: // First blood
                     if (PlayerPrefs.GetInt(arrayTitles[i]) == 1)
                     {
-                        titles[0].GetComponent<Image>().sprite = arraySprite[1];
+                        titles[1].GetComponent<Image>().sprite = arraySprite[1];
                     }
                     break;
                 case 4: // Speedrun
                     if (PlayerPrefs.GetInt(arrayTitles[i]) == 1 && PlayerPrefs.GetInt("You are a winner") == 1)
                     {
-                        titles[0].GetComponent<Image>().sprite = arraySprite[1];
+                        titles[1].GetComponent<Image>().sprite = arraySprite[1];
                     }
                     break;
                 case 5: // First block
                     if(PlayerPrefs.GetInt(arrayTitles[i]) == 1)
                     {
-                        titles[0].GetComponent<Image>().sprite = arraySprite[1];
+                        titles[1].GetComponent<Image>().sprite = arraySprite[1];
                     }
                     break;
             }
@@ -110,5 +113,10 @@ public class SetAchievementScript : MonoBehaviour
     public void Back()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ButtonClickSound()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }

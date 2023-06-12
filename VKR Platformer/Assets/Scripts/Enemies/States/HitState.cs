@@ -55,4 +55,9 @@ public class HitState : State
     {
         base.PhysicsUpdate();
     }
+
+    public void HitTimeIsOver()
+    {
+        isHitTimaOver = true;
+    }
 }

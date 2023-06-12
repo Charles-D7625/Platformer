@@ -11,12 +11,14 @@ public class MainMenuScript : MonoBehaviour
     private GameObject webManager;
     private WebManager webManagerScript;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
-        webManager = GameObject.Find("WebManager");
-        webManagerScript = webManager.GetComponent<WebManager>();
+        //webManager = GameObject.Find("WebManager");
+        //webManagerScript = webManager.GetComponent<WebManager>();
+        audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
     }
-
     public void LoadLevel()
     {
         SceneManager.LoadScene("SelectLevel");
@@ -30,10 +32,15 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("Settings");
     }
+
     public void QuitGame()
     {
-        webManagerScript.Save();
+        //webManagerScript.Save();
         Debug.Log("QUIT");
         Application.Quit();
+    }
+    public void ButtonClickSound()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }

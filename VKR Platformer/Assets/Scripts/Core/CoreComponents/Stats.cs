@@ -5,14 +5,20 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Stats : CoreComponent
 {
     public event Action OnHealthZero;
 
+    private AudioSource audioSource;
+
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip hitSound;
+
     [SerializeField] private float maxHealth;
     [SerializeField] private float deadAnimDuration;
-
+    
     private float lastHitTime;
 
     public float currentHealth { get; private set; }
@@ -24,13 +30,18 @@ public class Stats : CoreComponent
         base.Awake();
 
         currentHealth = maxHealth;
+
+        audioSource = core.transform.parent.GetComponent<AudioSource>();
     }
+
 
     public override void LogicUpdate()
     {
         if (currentHealth <= 0 && Time.time >= lastHitTime + deadAnimDuration)
         {
             currentHealth = 0;
+
+           
 
             OnHealthZero?.Invoke();
 
@@ -51,7 +62,16 @@ public class Stats : CoreComponent
     public void DecreaseHealth(float amount)
     {
         isHitActive = true;
+
         currentHealth -= amount;
+        if (currentHealth <= 0)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
+        else
+        {
+            audioSource.PlayOneShot(hitSound);
+        }
         lastHitTime = Time.time;
     }
 

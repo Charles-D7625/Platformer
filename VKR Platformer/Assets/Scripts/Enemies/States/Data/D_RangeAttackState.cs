@@ -16,4 +16,6 @@ public class D_RangeAttackState : ScriptableObject
     public Vector2 KnockbackAngle = Vector2.one;
 
     public float attackRadius = 0.3f;
+
+    public AudioClip arrowSound;
 }

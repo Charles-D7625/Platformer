@@ -46,10 +46,9 @@ public class Archer_PlayerDetectedState : PlayerDetectedState
         {
             stateMashine.ChangeState(archer.rangeAttackState);
         }
-        else if (!isDetectedLedge)
+        else if(performLongRangeAction)
         {
-            Movement?.Flip();
-            stateMashine.ChangeState(archer.idleState);
+            stateMashine.ChangeState(archer.rangeAttackState);
         }
     }
 

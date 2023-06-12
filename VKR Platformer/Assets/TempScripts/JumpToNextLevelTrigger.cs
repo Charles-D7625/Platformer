@@ -12,7 +12,7 @@ public class JumpToNextLevelTrigger : MonoBehaviour
         {
             PlayerPrefs.SetFloat("LevelTime" + (SceneManager.GetActiveScene().buildIndex - 3), Time.time - PlayerPrefs.GetFloat("StartGameTime"));
 
-            if (SceneManager.GetActiveScene().buildIndex == 6)
+            if (SceneManager.GetActiveScene().buildIndex == 5)
             {
                 PlayerPrefs.SetInt("You are a winner", 1);
                 Destroy(GameObject.FindGameObjectWithTag("Player"));

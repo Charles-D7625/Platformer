@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,7 +30,7 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         RB = GetComponent<Rigidbody2D>();
-
+        
         RB.gravityScale = 0.0f;
         RB.velocity = transform.right * speed;
 
@@ -81,6 +82,7 @@ public class Projectile : MonoBehaviour
                 if (knockbackable != null && shieldCollider != null)
                 {
                     knockbackable.Knockback(knockbackAngle, knockbackStrenght - 2, facingDirection);
+                    
                     Destroy(gameObject);
                 }
                 else if (knockbackable != null)

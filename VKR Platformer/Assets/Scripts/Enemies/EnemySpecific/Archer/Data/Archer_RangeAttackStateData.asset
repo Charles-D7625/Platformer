@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 4989346855998548079, guid: ec1fbd1cada48674e81b96b5677be788, type: 3}
   projectileDamage: 10
-  projectileSpeed: 12
+  projectileSpeed: 13
   projectileDistance: 8
+  knockbackStrenght: 10
+  KnockbackAngle: {x: 1, y: 1}
   attackRadius: 0.3
+  arrowSound: {fileID: 8300000, guid: 98ee4d54bea6cb54ebeb06e110b82724, type: 3}

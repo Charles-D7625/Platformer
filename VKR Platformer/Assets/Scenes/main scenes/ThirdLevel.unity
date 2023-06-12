@@ -187,8 +187,14 @@ CompositeCollider2D:
         Y: -180000000
       - X: 1310000000
         Y: -180000000
-    - - X: -270000000
+    - - X: -259999900
         Y: -60000000
+      - X: -259999900
+        Y: -59999959
+      - X: -259999959
+        Y: -59999900
+      - X: -270000000
+        Y: -59999900
       - X: -270000000
         Y: 40000000
       - X: -266875008
@@ -358,7 +364,7 @@ CompositeCollider2D:
       - {x: -47, y: 56.99997}
       - {x: -46.999973, y: -18}
     - - {x: 25, y: -5.9999704}
-      - {x: -27, y: -5.9999704}
+      - {x: -27, y: -5.999961}
       - {x: -26.999971, y: 4}
       - {x: -26.687494, y: 4.0000033}
       - {x: -26, y: 4.375}
@@ -20305,8 +20311,8 @@ Tilemap:
   - first: {x: -27, y: -7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 16
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -106540,11 +106546,11 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 12152dc7f81633c4ca1e7d8b288627cd, type: 2}
   - m_RefCount: 19
     m_Data: {fileID: 11400000, guid: e40195b02d480bb48ba5cd7572ec8361, type: 2}
-  - m_RefCount: 18
+  - m_RefCount: 19
     m_Data: {fileID: 11400000, guid: 4956c08076bf3e742949d33a7fb8e02b, type: 2}
   - m_RefCount: 17
     m_Data: {fileID: 11400000, guid: 4d995f03372752d4f999fa9500794e10, type: 2}
-  - m_RefCount: 9311
+  - m_RefCount: 9310
     m_Data: {fileID: 11400000, guid: f8b21b459e3173f4897a4752693801d7, type: 2}
   - m_RefCount: 11
     m_Data: {fileID: 11400000, guid: 91082d55254945e45a8fcacd1f104fe6, type: 2}
@@ -106791,11 +106797,11 @@ Tilemap:
     m_Data: {fileID: -462252014, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
   - m_RefCount: 19
     m_Data: {fileID: -2115478368, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
-  - m_RefCount: 18
+  - m_RefCount: 19
     m_Data: {fileID: -1317360463, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
   - m_RefCount: 17
     m_Data: {fileID: -1403848688, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
-  - m_RefCount: 9311
+  - m_RefCount: 9310
     m_Data: {fileID: -536482953, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
   - m_RefCount: 11
     m_Data: {fileID: -567784186, guid: 6d28f55f1b0572546b2632db94416d69, type: 3}
@@ -109440,7 +109446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581654154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 79.5, y: 26.8, z: 0}
+  m_LocalPosition: {x: -24.9, y: -5.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

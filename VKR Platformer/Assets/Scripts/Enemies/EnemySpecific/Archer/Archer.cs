@@ -7,7 +7,6 @@ public class Archer : Entity
     public Archer_IdleState idleState { get; private set; }
     public Archer_MoveState moveState { get; private set; }
     public Archer_PlayerDetectedState playerDetectedState { get; private set; }
-    public Archer_ChargeState chargeState { get; private set; }
     public Archer_LookForPlayerState lookForPlayerState { get; private set; }
     public Archer_DeadState deadState { get; private set; }
     public Archer_HitState hitState { get; private set; }
@@ -18,7 +17,6 @@ public class Archer : Entity
     [SerializeField] private D_IdleState idleStateData;
     [SerializeField] private D_MoveState moveStateData;
     [SerializeField] private D_PlayerDeteceted playerDetectedData;
-    [SerializeField] private D_ChargeState chargeStateData;
     [SerializeField] private D_LookForPlayer lookForPlayerStateData;
     [SerializeField] private D_DeadState deadStateData;
     [SerializeField] private D_HitState hitStateData;
@@ -35,9 +33,8 @@ public class Archer : Entity
         lookForPlayerState = new Archer_LookForPlayerState(stateMashine, this, "lookForPlayer", lookForPlayerStateData, this);
         rangeAttackState = new Archer_RangeAttackState(stateMashine, this, "rangeAttack", rangeAttackPosition, rangeAttackStateData, this);
         
-        /*stunState = new E1_StunState(stateMashine, this, "stun", stunStateData, this);      
+        //stunState = new E1_StunState(stateMashine, this, "stun", stunStateData, this);      
         
-        chargeState = new E1_ChargeState(stateMashine, this, "charge", chargeStateData, this);*/
     }
 
     private void Start()

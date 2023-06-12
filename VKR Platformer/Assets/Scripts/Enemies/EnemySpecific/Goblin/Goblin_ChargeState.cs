@@ -41,7 +41,8 @@ public class Goblin_ChargeState : ChargeState
         }
         else if (!isDetectingLedge || isDetectingWall)
         {
-            stateMashine.ChangeState(goblin.lookForPlayerState);
+            Movement?.Flip();
+            stateMashine.ChangeState(goblin.moveState);
         }
         else if (isChargeTimeOver)
         {

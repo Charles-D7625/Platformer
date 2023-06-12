@@ -15,12 +15,13 @@ public class Entity : MonoBehaviour
     public FiniteStateMashine stateMashine;
 
     public D_Entity entityData;
-
     public Animator anim { get; private set; }
     public AnimationToStatemashine atsm { get; private set; }
     public Core Core { get; private set; }
 
     [SerializeField] protected Transform playerCheck;
+
+    public AudioSource audioSource;
 
     private float currentStunResistence;
     private float lastDamageTime;
@@ -39,6 +40,7 @@ public class Entity : MonoBehaviour
 
         anim = GetComponent<Animator>();
         atsm = GetComponent<AnimationToStatemashine>();
+        audioSource = GetComponent<AudioSource>();
 
         stateMashine = new FiniteStateMashine();
     }

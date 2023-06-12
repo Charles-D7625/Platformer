@@ -12,7 +12,6 @@ public class MeleeAttackState : AttackState
 
     protected D_MeleeAttack stateData;
 
-    private int playerBlockCount = 0;
     private int playerDamageCount = 0;
 
     public MeleeAttackState(FiniteStateMashine stateMashine, Entity entity, string animBoolName, Transform attackPosition, D_MeleeAttack stateData) : base(stateMashine, entity, animBoolName, attackPosition)
@@ -28,6 +27,7 @@ public class MeleeAttackState : AttackState
     public override void Enter()
     {
         base.Enter();
+        
     }
 
     public override void Exit()
@@ -59,6 +59,8 @@ public class MeleeAttackState : AttackState
     {
         base.TriggerAttack();
 
+        entity.audioSource.PlayOneShot(stateData.meleeAttackSound);
+
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, stateData.attackRadius, stateData.whatIsPlayer);
 
         Collider2D[] detectedShield = Physics2D.OverlapCircleAll(attackPosition.position, stateData.attackRadius, stateData.whatIsShield);
@@ -89,15 +91,17 @@ public class MeleeAttackState : AttackState
             {
                 knockbackable.Knockback(stateData.KnockbackAngle, stateData.knockbackStrenght - 2, Movement.FacingDirection);
 
+                entity.audioSource.PlayOneShot(stateData.shieldAttackSound);
+
                 //Block Achievement
                 PlayerPrefs.SetInt("First block", 1);
 
-                //PlayerPrefs.SetInt("Block", ); ÎØÈÁÊÀ ÄÎÄÅËÀÉ
+                /*PlayerPrefs.SetInt("Block", ); ÎØÈÁÊÀ ÄÎÄÅËÀÉ
 
                 if(playerBlockCount >= 5)
                 {
                     PlayerPrefs.SetInt("Guardian", 1);
-                }
+                }*/
                 
 
             }

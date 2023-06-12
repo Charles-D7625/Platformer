@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Steamworks;
 using UnityEngine.UI;
-using UnityEditor.PackageManager;
 
 public class SteamProfile : MonoBehaviour
 {
