@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Steamworks;
 using UnityEngine.UI;
+using TMPro;
 
 public class SteamProfile : MonoBehaviour
 {
     [SerializeField] public RawImage profilePicture;
-    [SerializeField] public Text playerName;
+    [SerializeField] public TMP_Text playerName;
 
     async void Start()
     {

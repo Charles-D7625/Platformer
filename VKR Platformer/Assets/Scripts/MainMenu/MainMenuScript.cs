@@ -15,9 +15,10 @@ public class MainMenuScript : MonoBehaviour
 
     private void Start()
     {
-        //webManager = GameObject.Find("WebManager");
-        //webManagerScript = webManager.GetComponent<WebManager>();
+        webManager = GameObject.Find("WebManager");
+        webManagerScript = webManager.GetComponent<WebManager>();
         audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
+        AudioListener.volume = PlayerPrefs.GetFloat("AudioVolume");
     }
     public void LoadLevel()
     {
@@ -33,9 +34,14 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("Settings");
     }
 
+    public void LoadCharacters()
+    {
+        SceneManager.LoadScene("Characters");
+    }
+
     public void QuitGame()
     {
-        //webManagerScript.Save();
+        webManagerScript.Save();
         Debug.Log("QUIT");
         Application.Quit();
     }

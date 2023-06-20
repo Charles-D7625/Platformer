@@ -28,7 +28,7 @@ public class JumpToNextLevelTrigger : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("Available_levels", SceneManager.GetActiveScene().buildIndex - 2);
+                PlayerPrefs.SetInt("Available_levels", SceneManager.GetActiveScene().buildIndex - 1);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }

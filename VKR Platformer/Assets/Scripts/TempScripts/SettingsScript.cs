@@ -13,11 +13,15 @@ public class SettingsScript : MonoBehaviour
 
     public TMP_Dropdown resolutionDropdown;
 
+    public Slider slider;
+
     Resolution[] resolutions;
 
     private void Start()
     {
         audioSource = GameObject.Find("AudioSource").GetComponent<AudioSource>();
+
+        slider.SetValueWithoutNotify(PlayerPrefs.GetFloat("AudioVolume"));
 
         resolutions = Screen.resolutions;
 
@@ -50,6 +54,7 @@ public class SettingsScript : MonoBehaviour
 
     public void SetVolume(float volume)
     {
+        PlayerPrefs.SetFloat("AudioVolume", volume);
         audioMixer.SetFloat("volume", volume);
         AudioListener.volume = volume;
     }

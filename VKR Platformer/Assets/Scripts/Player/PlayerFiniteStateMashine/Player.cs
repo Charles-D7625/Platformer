@@ -57,6 +57,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenuScript.paused) return;
+
         Core.LogicUpdate();
         StateMashine.CurrentState.LogicUpdate();
     }

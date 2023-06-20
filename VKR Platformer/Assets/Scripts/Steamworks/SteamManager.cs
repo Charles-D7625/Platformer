@@ -28,8 +28,6 @@ public class SteamManager : MonoBehaviour
             DontDestroyOnLoad(this);
             Instance = this;
         }
-
-        
     }
 
     private void Update()

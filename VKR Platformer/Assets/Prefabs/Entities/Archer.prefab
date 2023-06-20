@@ -554,7 +554,6 @@ MonoBehaviour:
   idleStateData: {fileID: 11400000, guid: e5a443747af7f7a4ea4b92d3fba9b3da, type: 2}
   moveStateData: {fileID: 11400000, guid: 8959431dbabfd3f4b83fd6404eff022f, type: 2}
   playerDetectedData: {fileID: 11400000, guid: ac3d24c5a88708149b69af57a10e55c5, type: 2}
-  chargeStateData: {fileID: 11400000, guid: 8f335abebbe662e44956ce821bf9a18f, type: 2}
   lookForPlayerStateData: {fileID: 11400000, guid: 372b829853773ec4b9fd6eb29223bf51, type: 2}
   deadStateData: {fileID: 11400000, guid: 552c7be1ba6b9dd4bb9c6e9cd5be0c2c, type: 2}
   hitStateData: {fileID: 11400000, guid: faa94780d03361447a420812bf658956, type: 2}

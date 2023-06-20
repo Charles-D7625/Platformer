@@ -18,6 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private float jumpInputStartTime;
 
+
     private void Start()
     {
         int count = Enum.GetValues(typeof(CombatInputs)).Length;
@@ -78,6 +79,15 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    public void OnPauseGame(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("GAME PAUSE");
+            GameObject.Find("PauseMenu").SetActive(true);
+        }
+    }
+
     public void UseJumpInput() => JumpInput = false;
 
     private void CheckJumpInputHoldTime()
@@ -86,11 +96,6 @@ public class PlayerInputHandler : MonoBehaviour
         {
             JumpInput = false;
         }
-    }
-
-    public void OnQuitInput(InputAction.CallbackContext context)
-    {
-        Application.Quit();
     }
 }
 

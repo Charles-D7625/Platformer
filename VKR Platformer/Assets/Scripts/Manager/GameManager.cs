@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Destroy(GameObject.Find("AudioSource"));
         startGame = Time.time;
     }
+
 }

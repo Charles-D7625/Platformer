@@ -52,6 +52,11 @@ public class LevelSelectScript : MonoBehaviour
     {
         SceneManager.LoadScene("ThirdLevel");
     }
+
+    public void LoadTutotial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
     public void ButtonClickSound()
     {
         audioSource.PlayOneShot(audioSource.clip);

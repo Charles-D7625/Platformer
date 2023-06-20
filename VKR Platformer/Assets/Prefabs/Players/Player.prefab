@@ -664,22 +664,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8037c3ea-22f4-4b0f-9d12-808fa35cc161
     m_ActionName: Gameplay/New action
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5224601161497719813}
-        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
-        m_MethodName: OnQuitInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7e48b8f3-e393-4e51-bbf2-a21bde9b7fcd
-    m_ActionName: Gameplay/Quit[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -1022,7 +1006,7 @@ GameObject:
   - component: {fileID: 5224601161841506170}
   m_Layer: 11
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1127,8 +1111,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5198059, y: 1.2930145}
-  m_Size: {x: 0.10176849, y: 2.5225258}
+  m_Offset: {x: 0.5198059, y: 1.3427216}
+  m_Size: {x: 0.10176849, y: 2.4231117}
   m_Direction: 0
 --- !u!1 &5224601162016471600
 GameObject:
